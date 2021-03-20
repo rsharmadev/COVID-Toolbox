@@ -126,14 +126,14 @@
                     <div class="flex flex-row w-full justify-center px-32 pt-16">
                         <h1 id="Question0" class="text-white text-6xl text-center px-8 hidden">Welcome to the Diagnostic
                             Survey!</h1>
-                        <h1 id="Question1" class="text-white text-6xl text-center px-8 hidden">Question 1</h1>
-                        <h1 id="Question2" class="text-white text-6xl text-center px-8 hidden">Question 2</h1>
-                        <h1 id="Question3" class="text-white text-6xl text-center px-8 hidden">Question 3</h1>
-                        <h1 id="Question4" class="text-white text-6xl text-center px-8 hidden">Question 4</h1>
-                        <h1 id="Question5" class="text-white text-6xl text-center px-8 hidden">Question 5</h1>
-                        <h1 id="Question6" class="text-white text-6xl text-center px-8 hidden">Question 6</h1>
-                        <h1 id="Question7" class="text-white text-6xl text-center px-8 hidden">Question 7</h1>
-                        <h1 id="Question8" class="text-white text-6xl text-center px-8 hidden">Question 8</h1>
+                        <h1 id="Question1" class="text-white text-6xl text-center px-8 hidden">Are you completing this diagnostic for yourself?</h1>
+                        <h1 id="Question2" class="text-white text-6xl text-center px-8 hidden">Are you over the age of 60?</h1>
+                        <h1 id="Question3" class="text-white text-6xl text-center px-8 hidden">Do you have any of these symptoms?</h1>
+                        <h1 id="Question4" class="text-white text-6xl text-center px-8 hidden">Are you currently feeling sick?</h1>
+                        <h1 id="Question5" class="text-white text-6xl text-center px-8 hidden">Have you been in close contact with anyone who has been diagnosed with COVID-19?</h1>
+                        <h1 id="Question6" class="text-white text-6xl text-center px-8 hidden">Have you needed to visit the doctor recently?</h1>
+                        <h1 id="Question7" class="text-white text-6xl text-center px-8 hidden">Do you live in a long-term care facility, nursing home, or homeless shelter?</h1>
+                        <h1 id="Question8" class="text-white text-6xl text-center px-8 hidden">Have you recently been in any poorly ventilated area with a lot of people?</h1>
                         <h1 id="Score" class="text-white text-6xl text-center px-8 hidden">Score!</h1>
                     </div>
                 </div>
@@ -151,22 +151,22 @@
                 </div>
                 <div class="opacity-0 hidden" id="yesorno">
                     <div class="flex justify-center">
-                        <div
+                        <div id="yes"
                             class="hvrbutton text-3xl text-white rounded-lg bg-navblue py-6 px-14 mr-16 cursor-pointer continue">
                             Yes
                         </div>
-                        <div
+                        <div id="nobtn";
                             class="hvrbutton text-3xl text-white rounded-lg bg-navblue py-6 px-16 ml-16 cursor-pointer continue">
                             No
                         </div>
                     </div>
                     <div class="text-fillergray text-2xl mt-16 mx-auto px-4 py-2 font-semibold"
                         style="width: fit-content">
-                        <h1 class="cursor-pointer continue hvr-underline-from-left pb-0.5">Skip Question</h1>
+                        <h1 id="skip" class="cursor-pointer continue hvr-underline-from-left pb-0.5">Skip Question</h1>
                     </div>
                 </div>
                 <div id="AnswerInfo" class="opacity-0 hidden">
-                    <h2 class="text-2xl text-white text-center">Tell if patient should see doctor here
+                    <h2 id="Answer" class="text-2xl text-white text-center">Tell if patient should see doctor here
                     </h2>
 
                     <center><button id="testAgain"

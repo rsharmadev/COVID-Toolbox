@@ -184,7 +184,6 @@ testAgain.addEventListener('click', async () => {
 })
 
 async function nextQuestion(index) {
-
     console.log(index)
 
     if (index === 1) {
@@ -253,7 +252,27 @@ async function nextQuestion(index) {
     if (index < 8) {
         currentQuestion = index + 1
     } else {
+        console.log(selecteda);
+        if(selecteda.includes('override')) {
+            document.getElementById('Answer').innerHTML = "Go see a doctor";
+
+        } else {
+            let num;
+            for(i in selecteda) {
+                if(selecteda[i]) {
+                    num += 1;
+                }
+                if(selecteda.length / num >= 0.5) {
+                    document.getElementById('Answer').innerHTML = "Go see a doctor";
+                } else {
+                    document.getElementById('Answer').innerHTML = "You should be good";
+                }
+            }
+        }
         currentQuestion = 0
+        selecteda = [];
+        answeredQuestions = [];
+        num = 0;
     }
 }
 let continuebutton = document.getElementsByClassName('continue')
@@ -261,4 +280,37 @@ for (var i = 0; i < continuebutton.length; i++) {
     continuebutton[i].addEventListener('click', async () => {
         nextQuestion(currentQuestion)
     })
-}
+};
+
+let yesbtn = document.getElementById('yes');
+let skipbtn = document.getElementById('skip');
+let nobtn = document.getElementById('nobtn');
+let answeredQuestions = [];
+let selecteda = [];
+yesbtn.addEventListener('click', async() => {
+    if(answeredQuestions.includes(currentQuestion)) {
+        return;
+    }
+    answeredQuestions.push(currentQuestion);
+    console.log(currentQuestion);
+    if(currentQuestion == 3) {
+        selecteda.push('override');
+    } else {
+        selecteda.push(true);
+    }
+});
+
+nobtn.addEventListener('click', async() => {
+    if(answeredQuestions.includes(currentQuestion)) {
+        return;
+    }
+    answeredQuestions.push(currentQuestion);
+    console.log(currentQuestion);
+    selecteda.push(false);
+
+});
+
+skipbtn.addEventListener('click', async() => {
+    answeredQuestions.push(currentQuestion);
+    console.log(currentQuestion);
+})
