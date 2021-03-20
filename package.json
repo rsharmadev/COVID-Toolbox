@@ -1,0 +1,25 @@
+{
+  "name": "mocohacks2021",
+  "version": "1.0.0",
+  "description": "hi guys;;_",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sugarycoke/mocohacks2021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sugarycoke/mocohacks2021/issues"
+  },
+  "homepage": "https://github.com/sugarycoke/mocohacks2021#readme",
+  "dependencies": {
+    "csvtojson": "^2.0.10",
+    "express": "^4.17.1",
+    "got": "^11.8.2",
+    "tough-cookie": "^4.0.0"
+  }
+}
