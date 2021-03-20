@@ -49,7 +49,7 @@
                 style="height:100px; min-height: 100px;">
                 <h1>Information</h1>
             </div>
-            <div class="h-full w-full flex-grow px-16 py-10 flex flex-row">
+            <div class="h-full w-full flex-grow px-16 py-10 flex flex-row overflow-y-auto Whole">
                 <!--Real Content-->
                 <div style="flex: 5 0 0" class="h-full text-white">
                     <h1 class="text-2xl">Current Events</h1>
@@ -65,7 +65,7 @@
                             <h1 style="flex:5 0 0">Location</h1>
                             <h1 style="flex:2 0 0">Time</h1>
                         </div>
-                        <div>
+                        <div class="pb-12">
                             <!--COPYABLE ADD PEOPLE APPOINTMENTS-->
                             <div class='flex bg-navblue w-full py-6 px-3 rounded-md text-white mt-3'>
                                 <h1 style="flex:5 0 0">Nicholas Fettig</h1>
@@ -93,6 +93,8 @@
                 </div>
             </div>
         </div>
+
+
         <div class="h-screen flex-grow flex flex-col hidden" id="Scheduler">
             <!--Content-->
 
@@ -100,17 +102,139 @@
                 style="height:100px; min-height: 100px;">
                 <h1>Appointment Scheduler</h1>
             </div>
-            <div class="h-full w-full flex-grow px-16 py-10 flex flex-row">
+            <div class="h-full w-full flex-grow px-16 py-10 flex flex-col xl:flex-row overflow-y-auto Whole">
                 <!--Real Content-->
-                <div style="flex: 5 0 0" class="h-full">
-
-                </div>
                 <div style="flex: 3 0 0" class="h-full">
+                    <div class="pr-1 py-3 bg-navblue rounded-lg">
+                        <div class="bg-navblue rounded-lg px-5 py-1 w-full text-md heightspec overflow-y-auto Minimal"
+                            style="scroll-margin: 50px 0 0 50px;">
+                            <div class="w-full">
+                                <div class="flex flex-row w-full">
+                                    <input type="input" class="formdefault mr-2" style="flex: 1 0 0"
+                                        placeholder="First Name">
+                                    <input type="input" class="formdefault ml-2" style="flex: 1 0 0"
+                                        placeholder="Last Name">
+                                </div>
+                                <input type="input" class="formdefault w-full" placeholder="Email Address">
+                                <input type="input" class="formdefault w-full" placeholder="Phone Number">
+                                <div class="flex flex-row w-full pb-4">
+                                    <input type="input" class="formdefault mr-2" style="flex: 3 0 0"
+                                        placeholder="Date of Birth (MM / DD / YYYY)">
+                                    <select class="formdefault ml-2 font-normal" style="flex: 1 0 0">
+                                        <option selected default disabled invalid hidden> -- Sex --
+                                        </option>
+                                        <option>Female</option>
+                                        <option>Male</option>
+                                        <option>Other</option>
+                                        <option>Prefer not to Say</option>
+                                    </select>
+                                </div>
+                                <div class="pt-2">
+                                    <label class="text-xl text-gray-100 ">Race of Patient:</label>
+                                    <div class="flex flex-row text-white text-lg pt-2">
+                                        <div style="flex: 1 0 0">
+                                            <input type="checkbox"><label class="pl-4">White</label><br>
+                                            <input type="checkbox"><label class="pl-4">Black or African
+                                                American</label><br>
+                                            <input type="checkbox"><label class="pl-4">Asian</label><br>
+                                            <input type="checkbox"><label class="pl-4">American Indian or
+                                                Alaskan</label><br>
+                                        </div>
+                                        <div style="flex: 1 0 0">
+                                            <input type="checkbox"><label class="pl-4">Unknown</label><br>
+                                            <input type="checkbox"><label class="pl-4">Native Hawaiian</label><br>
+                                            <input type="checkbox"><label class="pl-4">Other</label><br>
+                                            <input type="checkbox"><label class="pl-4">Decline to Answer</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr style="width:100%;" class="mx-auto my-4 opacity-50">
+                                <h1 class="text-white text-2xl font-medium">Address
+                                </h1>
+                                <input type="input" class="formdefault w-full" placeholder="Address 1">
+                                <div class="flex flex-row w-full">
+                                    <input type="input" class="formdefault mr-2" style="flex: 3 0 0"
+                                        placeholder="Address 2">
+                                    <input type="input" class="formdefault ml-2" style="flex: 1 0 0"
+                                        placeholder="State">
+                                </div>
+                                <div class="flex flex-row w-full">
+                                    <input type="input" class="formdefault mr-2" style="flex: 3 0 0" placeholder="City">
+                                    <input type="input" class="formdefault ml-2" style="flex: 1 0 0" placeholder="Zip">
+                                </div>
+                                <center><button
+                                        class="bg-highlightblue text-bgblue font-semibold py-2 px-10 text-2xl mt-8 rounded-lg">Save</button>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="flex: 3.5 0 0" class="h-full pl-0 xl:pl-16">
+                    <h1 class="text-white text-2xl font-medium mt-16 hidden xl:block xl:mt-0">Schedule Status
+                    </h1>
+                    <div class="bg-navblue px-5 py-3 mt-32 lg:mt-16 xl:mt-3 rounded-lg text-center xl:text-left">
+                        <h1 class="text-white text-2xl font-medium">About</h1>
+                        <p class="text-gray-100 text-md mt-2 font-medium">Upon clicking start,
+                            your information will be submitted
+                            to
+                            the
+                            next available
+                            appointment at the M&T Bank Stadium location. Please
+                            allow up to 2 hours for
+                            your appointment to be set. It will appear here and on the Information page
+                            when complete. Note that you may only submit for one appointment at a time.</p>
+                    </div>
 
+                    <div class="flex flex-row mt-12">
+                        <button
+                            class="bg-highlightblue py-1.5 px-4 flex flex-row justify-between text-bgblue font-semibold text-2xl rounded-sm items-center">
+                            <h1>Start</h1>
+                            <img class="w-6 ml-6" src="./assets/play-circle.svg" alt="[]">
+                        </button>
+                        <button
+                            class="ml-3 bg-highlightred py-1.5 px-4 flex flex-row justify-between text-bgblue font-semibold text-2xl rounded-sm items-center">
+                            <h1>Stop</h1>
+                            <img class="w-6 ml-6" src="./assets/stop-circle.svg" alt="[]">
+                        </button>
+                        <button
+                            class="ml-auto bg-darkred py-1.5 px-4 flex flex-row justify-between text-bgblue font-semibold text-2xl rounded-sm items-center">
+                            <h1>Clear</h1>
+                            <img class="w-6 ml-5" src="./assets/trash.svg" alt="[]">
+                        </button>
+                    </div>
+
+                    <div class="text-lg pb-12">
+                        <div class='flex bg-headerblue w-full py-2 px-3 rounded-md text-gray-400 mt-3 font-medium'>
+                            <h1 style="flex:5 0 0">Patient Name</h1>
+                            <h1 style="flex:5 0 0">Phone number</h1>
+                            <h1 style="flex:2 0 0">Status</h1>
+                        </div>
+                        <!--<div class='flex bg-navblue w-full py-4 px-3 rounded-md text-white mt-3 font-medium'>
+                            <h1 style="flex:5 0 0">Nicholas Fettig</h1>
+                            <h1 style="flex:5 0 0">123-123-1234</h1>
+                            <h1 class="text-highlightblue font-semibold" style="flex:2 0 0">Running</h1>
+                        </div>
+                        <div class='flex bg-navblue w-full py-4 px-3 rounded-md text-white mt-3 font-medium'>
+                            <h1 style="flex:5 0 0">Nicholas Fettig</h1>
+                            <h1 style="flex:5 0 0">123-123-1234</h1>
+                            <h1 class="text-highlightred font-semibold" style="flex:2 0 0">Stopped</h1>
+                        </div>-->
+                        <div
+                            class='flex bg-navblue w-full py-20 px-9 rounded-md text-fillergray mt-3 font-medium items-center justify-center text-center font-semibold'>
+                            <div>
+                                <h1 class="text-2xl">Appointment Auto-scheduler not running</h1>
+                                <h1 class="text-lg">(Fill the information on the left and press start) </h1>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
         </div>
+
+
 
         <div class="h-screen flex-grow flex flex-col hidden" id="Diagnostic">
             <!--Content-->
@@ -119,30 +243,48 @@
                 style="height:100px; min-height: 100px;">
                 <h1>Diagnostic Exam</h1>
             </div>
-            <div class="h-full w-full flex-grow px-16 py-10 relative overflow-y-auto">
+            <div class="h-full w-full flex-grow px-16 py-10 relative overflow-y-auto Whole">
                 <!--SCROLL ABOVE REAL CONTENT __X -->
                 <!--Real Content-->
                 <div>
                     <div class="flex flex-row w-full justify-center px-32 pt-16">
-                        <h1 id="Question0" class="text-white text-6xl text-center px-8 hidden">Welcome to the Diagnostic
+                        <h1 id="Question0" class="text-white text-6xl text-center px-8 hidden">Welcome to the
+                            Diagnostic
                             Survey!</h1>
-                        <h1 id="Question1" class="text-white text-6xl text-center px-8 hidden">Are you completing this diagnostic for yourself?</h1>
-                        <h1 id="Question2" class="text-white text-6xl text-center px-8 hidden">Are you over the age of 60?</h1>
-                        <h1 id="Question3" class="text-white text-6xl text-center px-8 hidden">Do you have any of these symptoms?</h1>
-                        <h1 id="Question4" class="text-white text-6xl text-center px-8 hidden">Are you currently feeling sick?</h1>
-                        <h1 id="Question5" class="text-white text-6xl text-center px-8 hidden">Have you been in close contact with anyone who has been diagnosed with COVID-19?</h1>
-                        <h1 id="Question6" class="text-white text-6xl text-center px-8 hidden">Have you needed to visit the doctor recently?</h1>
-                        <h1 id="Question7" class="text-white text-6xl text-center px-8 hidden">Do you live in a long-term care facility, nursing home, or homeless shelter?</h1>
-                        <h1 id="Question8" class="text-white text-6xl text-center px-8 hidden">Have you recently been in any poorly ventilated area with a lot of people?</h1>
+                        <h1 id="Question1" class="text-white text-6xl text-center px-8 hidden">Are you completing
+                            this
+                            diagnostic for yourself?</h1>
+                        <h1 id="Question2" class="text-white text-6xl text-center px-8 hidden">Are you over the age
+                            of
+                            60?</h1>
+                        <h1 id="Question3" class="text-white text-6xl text-center px-8 hidden">Do you have any of
+                            these
+                            symptoms?</h1>
+                        <h1 id="Question4" class="text-white text-6xl text-center px-8 hidden">Are you currently
+                            feeling
+                            sick?</h1>
+                        <h1 id="Question5" class="text-white text-6xl text-center px-8 hidden">Have you been in
+                            close
+                            contact with anyone who has been diagnosed with COVID-19?</h1>
+                        <h1 id="Question6" class="text-white text-6xl text-center px-8 hidden">Have you needed to
+                            visit
+                            the doctor recently?</h1>
+                        <h1 id="Question7" class="text-white text-6xl text-center px-8 hidden">Do you live in a
+                            long-term care facility, nursing home, or homeless shelter?</h1>
+                        <h1 id="Question8" class="text-white text-6xl text-center px-8 hidden">Have you recently
+                            been in
+                            any poorly ventilated area with a lot of people?</h1>
                         <h1 id="Score" class="text-white text-6xl text-center px-8 hidden">Score!</h1>
                     </div>
                 </div>
                 <div class="fluid w-44 bg-gray-200 h-0.5 mx-auto opacity-50 my-12"></div>
                 <div id="questionInfo">
-                    <h2 class="text-2xl text-white text-center">This test is used as a first identifier for the COVID-19
+                    <h2 class="text-2xl text-white text-center">This test is used as a first identifier for the
+                        COVID-19
                         virus. You will be<br> asked yes or no quesions related to common symptoms. The results from
                         this
-                        test are<br> by no means 100% accurate, but can hopefully serve as a first method of testing.
+                        test are<br> by no means 100% accurate, but can hopefully serve as a first method of
+                        testing.
                     </h2>
 
                     <center><button id="startbutton"
@@ -155,14 +297,15 @@
                             class="hvrbutton text-3xl text-white rounded-lg bg-navblue py-6 px-14 mr-16 cursor-pointer continue">
                             Yes
                         </div>
-                        <div id="nobtn";
+                        <div id="nobtn" ;
                             class="hvrbutton text-3xl text-white rounded-lg bg-navblue py-6 px-16 ml-16 cursor-pointer continue">
                             No
                         </div>
                     </div>
                     <div class="text-fillergray text-2xl mt-16 mx-auto px-4 py-2 font-semibold"
                         style="width: fit-content">
-                        <h1 id="skip" class="cursor-pointer continue hvr-underline-from-left pb-0.5">Skip Question</h1>
+                        <h1 id="skip" class="cursor-pointer continue hvr-underline-from-left pb-0.5">Skip Question
+                        </h1>
                     </div>
                 </div>
                 <div id="AnswerInfo" class="opacity-0 hidden">
@@ -186,7 +329,7 @@
                 style="height:100px; min-height: 100px;">
                 <h1>Analytics</h1>
             </div>
-            <div class="h-full w-full flex-grow px-16 py-10 flex flex-row">
+            <div class="h-full w-full flex-grow px-16 py-10 flex flex-row overflow-y-auto Whole">
                 <!--Real Content-->
                 <div style="flex: 5 0 0" class="h-full">
 
