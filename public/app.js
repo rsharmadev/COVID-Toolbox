@@ -66,7 +66,7 @@ function introLoad() {
 
 
 
-    const tl = new TimelineMax({ delay: 0.2 });
+    const tl = new TimelineMax({ delay: 0 });
     q0.className = "text-white text-6xl text-center px-8 opacity-0"
     questionInfo.className = "block"
     tl.fromTo(q0, 0.5, { y: '50', opacity: 0 }, { y: 0, opacity: 1 })

@@ -1,3 +1,7 @@
+button, .continue, .fluid {
+    transition: all 0.5s ease;
+}
+
 .absoluteStyles {
     position: absolute;
     top:50%;
