@@ -20,12 +20,35 @@ let bar4 = document.getElementById("bar4")
 
 let selected = "absolute w-1.5 h-full bg-highlightblue top-0 right-0"
 
+const q0 = document.querySelector('#Question0')
+const q1 = document.querySelector('#Question1')
+const q2 = document.querySelector('#Question2')
+const q3 = document.querySelector('#Question3')
+const q4 = document.querySelector('#Question4')
+const q5 = document.querySelector('#Question5')
+const q6 = document.querySelector('#Question6')
+const q7 = document.querySelector('#Question7')
+const q8 = document.querySelector('#Question8')
+const questionInfo = document.querySelector('#questionInfo')
+const startbutton = document.querySelector('#startbutton')
+const yesorno = document.querySelector('#yesorno')
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 function preload() {
     page1.className = "h-screen flex-grow flex flex-col"
     image1.src = "./assets/infoselected.svg"
     bar1.className = "absolute w-1.5 h-full bg-highlightblue top-0 right-0"
     button1.className = "w-full bg-bgblue relative cursor-pointer"
+}
+
+function introLoad() {
+    const tl = new TimelineMax({ delay: 0.2 });
+    q0.className = "text-white text-6xl text-center px-8 opacity-0"
+    tl.fromTo(q0, 0.5, { y: '50', opacity: 0 }, { y: 0, opacity: 1 })
+    tl.fromTo(questionInfo, 0.5, { y: '50', opacity: 0 }, { y: 0, opacity: 1 }, 0.2)
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -88,6 +111,8 @@ button3.addEventListener('click', () => {
     image3.src = "./assets/edit-3selected.svg"
     bar3.className = "absolute w-1.5 h-full bg-highlightblue top-0 right-0"
     button3.className = "w-full bg-bgblue relative cursor-pointer"
+
+    introLoad()
 })
 button4.addEventListener('click', () => {
     page1.className = "h-screen flex-grow flex flex-col hidden"
@@ -107,4 +132,15 @@ button4.addEventListener('click', () => {
     image4.src = "./assets/pie-chartselected.svg"
     bar4.className = "absolute w-1.5 h-full bg-highlightblue top-0 right-0"
     button4.className = "w-full bg-bgblue relative cursor-pointer"
+})
+startbutton.addEventListener('click', async () => {
+    const tl = new TimelineMax({ delay: 0.2 });
+    tl.fromTo(questionInfo, 0.7, { y: '0', opacity: 1 }, { y: 100, opacity: 0 }, 0)
+    tl.fromTo(q0, 1, { opacity: 1 }, { opacity: 0 }, 0)
+    await sleep(1000)
+    q0.className = "text-white text-6xl text-center px-8 hidden"
+    q1.className = "text-white text-6xl text-center px-8 opacity-0"
+    tl.fromTo(q1, 1, { opacity: 0 }, { opacity: 1 }, 1)
+    questionInfo.className = "hidden"
+    tl.fromTo(yesorno, 1, { y: '50', opacity: 0 }, { y: 0, opacity: 1 })
 })
