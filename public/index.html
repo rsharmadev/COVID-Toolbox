@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MocoHacks Project</title>
+    <link rel="stylesheet" href="./tailwind.css">
+    <link rel="stylesheet" href="./animations.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+</head>
+
+<body class="font-body">
+    <div class="h-screen w-full bg-bgblue overflow-none flex">
+        <!--Nav-->
+
+        <div class="bg-navblue h-screen pt-44"
+            style="width:95px; min-width:95px; box-shadow: #0b0c0e 0 0 8px 0; z-index: 10;">
+
+            <div class="w-full bg-transparent relative cursor-pointer" id="button1">
+                <img id="image1" class="w-8 mx-auto py-5" src="./assets/info.svg" alt="Info">
+                <div id="bar1" class="absolute w-1.5 h-full bg-highlightblue top-0 right-0 hidden"></div>
+            </div>
+
+            <div class="w-full bg-transparent relative cursor-pointer" id="button2">
+                <img id="image2" class="w-8 mx-auto py-5" src="./assets/calendar.svg" alt="calendar">
+                <div id="bar2" class="absolute w-1.5 h-full bg-highlightblue top-0 right-0 hidden"></div>
+            </div>
+
+            <div class="w-full bg-transparent relative cursor-pointer" id="button3">
+                <img id="image3" class="w-8 mx-auto py-5" src="./assets/edit-3.svg" alt="edit">
+                <div id="bar3" class="absolute w-1.5 h-full bg-highlightblue top-0 right-0 hidden"></div>
+            </div>
+
+            <div class="w-full bg-transparent relative cursor-pointer" id="button4">
+                <img id="image4" class="w-8 mx-auto py-5" src="./assets/pie-chart.svg" alt="Charts">
+                <div id="bar4" class="absolute w-1.5 h-full bg-highlightblue top-0 right-0 hidden"></div>
+            </div>
+
+        </div>
+
+
+
+        <div class="h-screen flex-grow flex flex-col hidden" id="Information">
+            <!--Content-->
+
+            <div class="w-full bg-darkblue shadow-lg flex items-center text-white text-3xl px-16"
+                style="height:100px; min-height: 100px;">
+                <h1>Information</h1>
+            </div>
+            <div class="h-full w-full flex-grow px-16 py-10 flex flex-row">
+                <!--Real Content-->
+                <div style="flex: 5 0 0" class="h-full text-white">
+                    <h1 class="text-2xl">Current Events</h1>
+                    <div id="googlenews">
+                        <!--GOOGLE API OF CURRENT NEWS REGARDING COVID-->
+                    </div>
+                </div>
+                <div style="flex: 3 0 0" class="h-full">
+                    <h1 class="text-2xl text-white">My Appointments</h1>
+                    <div class="text-md">
+                        <div class='flex bg-headerblue w-full py-2 px-3 rounded-md text-gray-400 mt-3 font-medium'>
+                            <h1 style="flex:5 0 0">Patient Name</h1>
+                            <h1 style="flex:5 0 0">Location</h1>
+                            <h1 style="flex:2 0 0">Time</h1>
+                        </div>
+                        <div>
+                            <!--COPYABLE ADD PEOPLE APPOINTMENTS-->
+                            <div class='flex bg-navblue w-full py-6 px-3 rounded-md text-white mt-3'>
+                                <h1 style="flex:5 0 0">Nicholas Fettig</h1>
+                                <h1 style="flex:5 0 0">Six Flags</h1>
+                                <h1 style="flex:2 0 0">8:00 PM</h1>
+                            </div>
+                            <!--COPYABLE-->
+
+                            <div class='flex bg-navblue w-full py-6 px-3 rounded-md text-white mt-3'>
+                                <h1 style="flex:5 0 0">Adam Lederer</h1>
+                                <h1 style="flex:5 0 0">M&T Bank Stadium</h1>
+                                <h1 style="flex:2 0 0">12:12 PM</h1>
+                            </div>
+
+                            <div
+                                class='flex bg-navblue w-full h-56 rounded-md mt-3 flex items-center justify-center font-bold'>
+                                <div class="text-fillergray text-center">
+                                    <h1 class="text-xl">No Scheduled Appointments</h1>
+                                    <h2 class="text-lg">(Click <span class="text-linkblue">here</span> to schedule one)
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="h-screen flex-grow flex flex-col hidden" id="Scheduler">
+            <!--Content-->
+
+            <div class="w-full bg-darkblue shadow-lg flex items-center text-white text-3xl px-16"
+                style="height:100px; min-height: 100px;">
+                <h1>Appointment Scheduler</h1>
+            </div>
+            <div class="h-full w-full flex-grow px-16 py-10 flex flex-row">
+                <!--Real Content-->
+                <div style="flex: 5 0 0" class="h-full">
+
+                </div>
+                <div style="flex: 3 0 0" class="h-full">
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="h-screen flex-grow flex flex-col hidden" id="Diagnostic">
+            <!--Content-->
+
+            <div class="w-full bg-darkblue shadow-lg flex items-center text-white text-3xl px-16"
+                style="height:100px; min-height: 100px;">
+                <h1>Diagnostic Exam</h1>
+            </div>
+            <div class="h-full w-full flex-grow px-16 py-10 relative overflow-y-auto">
+                <!--SCROLL ABOVE REAL CONTENT __X -->
+                <!--Real Content-->
+                <div>
+                    <div class="flex flex-row w-full justify-center px-32 pt-16">
+                        <h1 id="Question0" class="text-white text-6xl text-center px-8 hidden">Welcome to the Diagnostic
+                            Survey!</h1>
+                        <h1 id="Question1" class="text-white text-6xl text-center px-8 hidden">Are you completing this diagnostic for yourself?</h1>
+                        <h1 id="Question2" class="text-white text-6xl text-center px-8 hidden">Are you over the age of 60?</h1>
+                        <h1 id="Question3" class="text-white text-6xl text-center px-8 hidden">Do you have any of these symptoms?</h1>
+                        <h1 id="Question4" class="text-white text-6xl text-center px-8 hidden">Are you currently feeling sick?</h1>
+                        <h1 id="Question5" class="text-white text-6xl text-center px-8 hidden">Have you been in close contact with anyone who has been diagnosed with COVID-19?</h1>
+                        <h1 id="Question6" class="text-white text-6xl text-center px-8 hidden">Have you needed to visit the doctor recently?</h1>
+                        <h1 id="Question7" class="text-white text-6xl text-center px-8 hidden">Do you live in a long-term care facility, nursing home, or homeless shelter?</h1>
+                        <h1 id="Question8" class="text-white text-6xl text-center px-8 hidden">Have you recently been in any poorly ventilated area with a lot of people?</h1>
+                        <h1 id="Score" class="text-white text-6xl text-center px-8 hidden">Score!</h1>
+                    </div>
+                </div>
+                <div class="fluid w-44 bg-gray-200 h-0.5 mx-auto opacity-50 my-12"></div>
+                <div id="questionInfo">
+                    <h2 class="text-2xl text-white text-center">This test is used as a first identifier for the COVID-19
+                        virus. You will be<br> asked yes or no quesions related to common symptoms. The results from
+                        this
+                        test are<br> by no means 100% accurate, but can hopefully serve as a first method of testing.
+                    </h2>
+
+                    <center><button id="startbutton"
+                            class="text-white mx-auto border rounded text-2xl border-white mt-10 p-2 px-6 hvrbutton">Start!</button>
+                    </center>
+                </div>
+                <div class="opacity-0 hidden" id="yesorno">
+                    <div class="flex justify-center">
+                        <div id="yes"
+                            class="hvrbutton text-3xl text-white rounded-lg bg-navblue py-6 px-14 mr-16 cursor-pointer continue">
+                            Yes
+                        </div>
+                        <div id="nobtn";
+                            class="hvrbutton text-3xl text-white rounded-lg bg-navblue py-6 px-16 ml-16 cursor-pointer continue">
+                            No
+                        </div>
+                    </div>
+                    <div class="text-fillergray text-2xl mt-16 mx-auto px-4 py-2 font-semibold"
+                        style="width: fit-content">
+                        <h1 id="skip" class="cursor-pointer continue hvr-underline-from-left pb-0.5">Skip Question</h1>
+                    </div>
+                </div>
+                <div id="AnswerInfo" class="opacity-0 hidden">
+                    <h2 id="Answer" class="text-2xl text-white text-center">Tell if patient should see doctor here
+                    </h2>
+
+                    <center><button id="testAgain"
+                            class="text-white mx-auto border rounded text-xl border-white mt-4 p-2 hvrbutton">Test
+                            Again</button>
+                    </center>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="h-screen flex-grow flex flex-col hidden" id="Analytics">
+            <!--Content-->
+
+            <div class="w-full bg-darkblue shadow-lg flex items-center text-white text-3xl px-16"
+                style="height:100px; min-height: 100px;">
+                <h1>Analytics</h1>
+            </div>
+            <div class="h-full w-full flex-grow px-16 py-10 flex flex-row">
+                <!--Real Content-->
+                <div style="flex: 5 0 0" class="h-full">
+
+                </div>
+                <div style="flex: 3 0 0" class="h-full">
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineMax.min.js"
+        integrity="sha512-lJDBw/vKlGO8aIZB8/6CY4lV+EMAL3qzViHid6wXjH/uDrqUl+uvfCROHXAEL0T/bgdAQHSuE68vRlcFHUdrUw=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"
+        integrity="sha512-8Wy4KH0O+AuzjMm1w5QfZ5j5/y8Q/kcUktK9mPUVaUoBvh3QPUZB822W/vy7ULqri3yR8daH3F58+Y8Z08qzeg=="
+        crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
