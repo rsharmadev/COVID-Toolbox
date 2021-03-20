@@ -53,7 +53,9 @@
                 <!--Real Content-->
                 <div style="flex: 5 0 0" class="h-full text-white">
                     <h1 class="text-2xl">Current Events</h1>
-                    <!--GOOGLE API OF CURRENT NEWS REGARDING COVID-->
+                    <div id="googlenews">
+                        <!--GOOGLE API OF CURRENT NEWS REGARDING COVID-->
+                    </div>
                 </div>
                 <div style="flex: 3 0 0" class="h-full">
                     <h1 class="text-2xl text-white">My Appointments</h1>
@@ -131,6 +133,7 @@
                         <h1 id="Question6" class="text-white text-6xl text-center px-8 hidden">Question 6</h1>
                         <h1 id="Question7" class="text-white text-6xl text-center px-8 hidden">Question 7</h1>
                         <h1 id="Question8" class="text-white text-6xl text-center px-8 hidden">Question 8</h1>
+                        <h1 id="Score" class="text-white text-6xl text-center px-8 hidden">Score!</h1>
                     </div>
                 </div>
                 <div class="w-44 bg-gray-200 h-0.5 mx-auto opacity-50 my-12"></div>
@@ -141,20 +144,34 @@
                         test are<br> by no means 100% accurate, but can hopefully serve as a first method of testing.
                     </h2>
 
-                    <center><button id="startbutton" class="text-white mx-auto border border-white p-2">Start!</button>
+                    <center><button id="startbutton"
+                            class="text-white mx-auto border rounded text-2xl border-white mt-10 p-2 px-6 hvrbutton">Start!</button>
                     </center>
                 </div>
-                <div class="opacity-0" id="yesorno">
+                <div class="opacity-0 hidden" id="yesorno">
                     <div class="flex justify-center">
-                        <div class="text-3xl text-white rounded-lg bg-navblue py-6 px-14 mr-16 cursor-pointer">Yes
+                        <div
+                            class="hvrbutton text-3xl text-white rounded-lg bg-navblue py-6 px-14 mr-16 cursor-pointer continue">
+                            Yes
                         </div>
-                        <div class="text-3xl text-white rounded-lg bg-navblue py-6 px-16 ml-16 cursor-pointer">No
+                        <div
+                            class="hvrbutton text-3xl text-white rounded-lg bg-navblue py-6 px-16 ml-16 cursor-pointer continue">
+                            No
                         </div>
                     </div>
                     <div class="text-fillergray text-2xl mt-16 mx-auto px-4 py-2 font-semibold"
                         style="width: fit-content">
-                        <h1>Skip Question</h1>
+                        <h1 class="cursor-pointer continue hvr-underline-from-left pb-0.5">Skip Question</h1>
                     </div>
+                </div>
+                <div id="AnswerInfo" class="opacity-0 hidden">
+                    <h2 class="text-2xl text-white text-center">Tell if patient should see doctor here
+                    </h2>
+
+                    <center><button id="testAgain"
+                            class="text-white mx-auto border rounded text-xl border-white mt-4 p-2">Test
+                            Again</button>
+                    </center>
                 </div>
             </div>
 
@@ -182,6 +199,9 @@
 
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineMax.min.js"
         integrity="sha512-lJDBw/vKlGO8aIZB8/6CY4lV+EMAL3qzViHid6wXjH/uDrqUl+uvfCROHXAEL0T/bgdAQHSuE68vRlcFHUdrUw=="
         crossorigin="anonymous"></script>

@@ -19,6 +19,7 @@ let bar3 = document.getElementById("bar3")
 let bar4 = document.getElementById("bar4")
 
 let selected = "absolute w-1.5 h-full bg-highlightblue top-0 right-0"
+let currentQuestion = 0
 
 const q0 = document.querySelector('#Question0')
 const q1 = document.querySelector('#Question1')
@@ -29,9 +30,12 @@ const q5 = document.querySelector('#Question5')
 const q6 = document.querySelector('#Question6')
 const q7 = document.querySelector('#Question7')
 const q8 = document.querySelector('#Question8')
+const score = document.querySelector('#Score')
 const questionInfo = document.querySelector('#questionInfo')
+const answerInfo = document.querySelector('#AnswerInfo')
 const startbutton = document.querySelector('#startbutton')
 const yesorno = document.querySelector('#yesorno')
+const testAgain = document.querySelector('#testAgain')
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -45,8 +49,26 @@ function preload() {
 }
 
 function introLoad() {
+
+    currentQuestion = 0
+    q1.className = "text-white text-6xl text-center px-8 hidden"
+    q2.className = "text-white text-6xl text-center px-8 hidden"
+    q3.className = "text-white text-6xl text-center px-8 hidden"
+    q4.className = "text-white text-6xl text-center px-8 hidden"
+    q5.className = "text-white text-6xl text-center px-8 hidden"
+    q6.className = "text-white text-6xl text-center px-8 hidden"
+    q7.className = "text-white text-6xl text-center px-8 hidden"
+    q8.className = "text-white text-6xl text-center px-8 hidden"
+    score.className = "text-white text-6xl text-center px-8 hidden"
+    yesorno.className = "opacity-0 hidden"
+    answerInfo.className = "opacity-0 hidden"
+
+
+
+
     const tl = new TimelineMax({ delay: 0.2 });
     q0.className = "text-white text-6xl text-center px-8 opacity-0"
+    questionInfo.className = "block"
     tl.fromTo(q0, 0.5, { y: '50', opacity: 0 }, { y: 0, opacity: 1 })
     tl.fromTo(questionInfo, 0.5, { y: '50', opacity: 0 }, { y: 0, opacity: 1 }, 0.2)
 }
@@ -140,7 +162,103 @@ startbutton.addEventListener('click', async () => {
     await sleep(1000)
     q0.className = "text-white text-6xl text-center px-8 hidden"
     q1.className = "text-white text-6xl text-center px-8 opacity-0"
-    tl.fromTo(q1, 1, { opacity: 0 }, { opacity: 1 }, 1)
+    tl.fromTo(q1, 0.8, { opacity: 0 }, { opacity: 1 }, 1)
     questionInfo.className = "hidden"
-    tl.fromTo(yesorno, 1, { y: '50', opacity: 0 }, { y: 0, opacity: 1 })
+    yesorno.className = "opacity-0 block"
+    tl.fromTo(yesorno, 0.4, { y: '50', opacity: 0 }, { y: 0, opacity: 1 })
+    currentQuestion = 1
 })
+testAgain.addEventListener('click', async () => {
+
+    const tl = new TimelineMax({ delay: 0.2 });
+    tl.fromTo(answerInfo, 0.5, { y: '0', opacity: 1 }, { y: -50, opacity: 0 }, 0)
+    tl.fromTo(score, 0.5, { y: '0', opacity: 1 }, { y: -50, opacity: 0 }, 0)
+
+    await sleep(500)
+    answerInfo.className = "opacity-0 hidden"
+    score.className = "text-white text-6xl text-center px-8 hidden"
+    tl.fromTo(answerInfo, 0.5, { y: '50', opacity: 0 }, { y: 0, opacity: 1 })
+    tl.fromTo(score, 0.5, { y: '50', opacity: 0 }, { y: 0, opacity: 1 })
+    await sleep(300)
+    introLoad()
+})
+
+async function nextQuestion(index) {
+
+    console.log(index)
+
+    if (index === 1) {
+        const tl = new TimelineMax({ delay: 0.2 });
+        tl.fromTo(q1, 1, { opacity: 1 }, { opacity: 0 }, 0)
+        await sleep(1000)
+        q1.className = "text-white text-6xl text-center px-8 hidden"
+        q2.className = "text-white text-6xl text-center px-8 opacity-0"
+        tl.fromTo(q2, 1, { opacity: 0 }, { opacity: 1 }, 1)
+    } else if (index === 2) {
+        const tl = new TimelineMax({ delay: 0.2 });
+        tl.fromTo(q2, 1, { opacity: 1 }, { opacity: 0 }, 0)
+        await sleep(1000)
+        q2.className = "text-white text-6xl text-center px-8 hidden"
+        q3.className = "text-white text-6xl text-center px-8 opacity-0"
+        tl.fromTo(q3, 1, { opacity: 0 }, { opacity: 1 }, 1)
+    } else if (index === 3) {
+        const tl = new TimelineMax({ delay: 0.2 });
+        tl.fromTo(q3, 1, { opacity: 1 }, { opacity: 0 }, 0)
+        await sleep(1000)
+        q3.className = "text-white text-6xl text-center px-8 hidden"
+        q4.className = "text-white text-6xl text-center px-8 opacity-0"
+        tl.fromTo(q4, 1, { opacity: 0 }, { opacity: 1 }, 1)
+    } else if (index === 4) {
+        const tl = new TimelineMax({ delay: 0.2 });
+        tl.fromTo(q4, 1, { opacity: 1 }, { opacity: 0 }, 0)
+        await sleep(1000)
+        q4.className = "text-white text-6xl text-center px-8 hidden"
+        q5.className = "text-white text-6xl text-center px-8 opacity-0"
+        tl.fromTo(q5, 1, { opacity: 0 }, { opacity: 1 }, 1)
+    } else if (index === 5) {
+        const tl = new TimelineMax({ delay: 0.2 });
+        tl.fromTo(q5, 1, { opacity: 1 }, { opacity: 0 }, 0)
+        await sleep(1000)
+        q5.className = "text-white text-6xl text-center px-8 hidden"
+        q6.className = "text-white text-6xl text-center px-8 opacity-0"
+        tl.fromTo(q6, 1, { opacity: 0 }, { opacity: 1 }, 1)
+    } else if (index === 6) {
+        const tl = new TimelineMax({ delay: 0.2 });
+        tl.fromTo(q6, 1, { opacity: 1 }, { opacity: 0 }, 0)
+        await sleep(1000)
+        q6.className = "text-white text-6xl text-center px-8 hidden"
+        q7.className = "text-white text-6xl text-center px-8 opacity-0"
+        tl.fromTo(q7, 1, { opacity: 0 }, { opacity: 1 }, 1)
+    } else if (index === 7) {
+        const tl = new TimelineMax({ delay: 0.2 });
+        tl.fromTo(q7, 1, { opacity: 1 }, { opacity: 0 }, 0)
+        await sleep(1000)
+        q7.className = "text-white text-6xl text-center px-8 hidden"
+        q8.className = "text-white text-6xl text-center px-8 opacity-0"
+        tl.fromTo(q8, 1, { opacity: 0 }, { opacity: 1 }, 1)
+    } else if (index === 8) {
+        const tl = new TimelineMax({ delay: 0.2 });
+        tl.fromTo(q8, 1, { opacity: 1 }, { opacity: 0 }, 0)
+        await sleep(1000)
+        q8.className = "text-white text-6xl text-center px-8 hidden"
+        score.className = "text-white text-6xl text-center px-8 opacity-0"
+        tl.fromTo(score, 1, { opacity: 0 }, { opacity: 1 }, 0.5)
+
+        tl.fromTo(yesorno, 0.5, { y: '0', opacity: 1 }, { y: -50, opacity: 0 })
+        await sleep(1000)
+        yesorno.className = "opacity-0 hidden"
+        answerInfo.className = "opacity-0 block"
+        tl.fromTo(answerInfo, 0.5, { y: '50', opacity: 0 }, { y: 0, opacity: 1 })
+    }
+    if (index < 8) {
+        currentQuestion = index + 1
+    } else {
+        currentQuestion = 0
+    }
+}
+let continuebutton = document.getElementsByClassName('continue')
+for (var i = 0; i < continuebutton.length; i++) {
+    continuebutton[i].addEventListener('click', async () => {
+        nextQuestion(currentQuestion)
+    })
+}
