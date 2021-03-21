@@ -197,13 +197,13 @@
                     </div>
 
                     <div class="flex flex-row mt-12">
-                        <button
+                        <!-- button
                             class="bg-highlightblue py-1 px-4 flex flex-row justify-between text-bgblue font-semibold text-2xl rounded-sm items-center">
                             <h1>Start</h1>
                             <img class="w-6 ml-6" src="./assets/play-circle.svg" alt="[]">
                         </button -->
                         <button
-                            class="ml-3 bg-highlightred py-1 px-4 flex flex-row justify-between text-bgblue font-semibold text-2xl rounded-sm items-center">
+                            class="ml-3 bg-highlightred py-1 px-4 flex flex-row justify-between text-bgblue font-semibold text-2xl rounded-sm items-center" onclick="stopTask()">
                             <h1>Stop</h1>
                             <img class="w-6 ml-6" src="./assets/stop-circle.svg" alt="[]">
                         </button>
@@ -527,7 +527,7 @@
                         Wicomico: { lat: 38.3941813, lng: -75.667356 },
                         Worcester: { lat: 38.1584227, lng: -75.4344727 }
                     };
-                    fetch('http://localhost:3000/api/graphData')
+                    fetch('/api/graphData')
                         .then(response => response.json())
                         .then(data => {
                             main = data['data2']['data'];
@@ -671,7 +671,7 @@
         crossorigin="anonymous"></script>
     <script>
 
-        fetch('http://localhost:3000/api/newsData')
+        fetch('/api/newsData')
             .then(response => response.json())
             .then(data => {
                 console.log(data);

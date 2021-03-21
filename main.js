@@ -39,6 +39,6 @@ app.post('/api/stopSchedule', async (req, res) => {
         status: "stopped"
     }));
 });
-app.listen(3000, () => {
-    console.log(`Example app listening at http://localhost:${3000}`);
+app.listen(80, () => {
+    console.log(`Example app listening at http://localhost:${80}`);
 })
