@@ -39,7 +39,7 @@ class Data {
         // console.log(response.body);
         const jsonObj = await csv().fromString(response.body);
         const jsonObj2 = await csv().fromString(response2.body);
-        const jsonObj3 = await csv().fromString(response3.body);
+        let jsonObj3 = await csv().fromString(response3.body);
 
         // console.log(jsonObj.slice(-7));
         let json = jsonObj.slice(-7);
@@ -49,7 +49,7 @@ class Data {
         };
 
         jsonObj3 = jsonObj3.slice(-7);
-        for(var i=0; i<json.length; i++) {
+        for(var i=0; i<jsonObj3.length; i++) {
             this.covidData.push(jsonObj3[i]['TotalCases']);
             this.covidLabels.push(jsonObj3[i]['ReportDate']);
         };
