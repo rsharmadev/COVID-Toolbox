@@ -6,6 +6,8 @@ class Data {
     constructor() {
         this.data = [];
         this.labels = [];
+        this.covidData = [];
+        this.covidLabels = [];
     }
     async getData() {
 
@@ -23,16 +25,36 @@ class Data {
             }
         });
 
+        var response3 = await got.get('https://state-of-maryland.github.io/DailyCases/DailyCases.csv', {
+            headers: {
+                'user-agent': 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
+                'x-forwarded-for': '66.249.66.1',
+            }
+        });
+
+
+
+
 
         // console.log(response.body);
         const jsonObj = await csv().fromString(response.body);
         const jsonObj2 = await csv().fromString(response2.body);
+        const jsonObj3 = await csv().fromString(response3.body);
+
         // console.log(jsonObj.slice(-7));
         let json = jsonObj.slice(-7);
         for(var i=0; i<json.length; i++) {
             this.data.push(json[i]['CompletedVaxCumulative']);
             this.labels.push(json[i]['VACCINATION_DATE']);
         };
+
+        jsonObj3 = jsonObj3.slice(-7);
+        for(var i=0; i<json.length; i++) {
+            this.covidData.push(jsonObj3[i]['TotalCases']);
+            this.covidLabels.push(jsonObj3[i]['ReportDate']);
+        };
+        
+
         
         /*
         let counties = {
@@ -80,6 +102,10 @@ class Data {
             },
             data2: {
                 data: jsonObj2
+            },
+            data3: {
+                labels: this.covidLabels,
+                data: this.covidData
             }
     };
 } }
