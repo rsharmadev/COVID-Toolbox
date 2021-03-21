@@ -627,7 +627,7 @@
         integrity="sha512-8Wy4KH0O+AuzjMm1w5QfZ5j5/y8Q/kcUktK9mPUVaUoBvh3QPUZB822W/vy7ULqri3yR8daH3F58+Y8Z08qzeg=="
         crossorigin="anonymous"></script>
     <script>
-        /*
+        
         fetch('http://localhost:3000/api/newsData')
         .then(response => response.json())
         .then(data => {
@@ -636,36 +636,7 @@
             let img;
             let newsdiv = document.getElementById('googlenews');
             for(i in data) {
-                div = document.createElement('div');
-                img = document.createElement('img');
-                img.src = data[i]['urlToImage'];
-                img.alt = 'Vaccine Data';
-                div.className = 'bg-navblue w-full p-5';
-                div.innerHTML = JSON.stringify(data[i]);
-                div.appendChild(img);
-                newsdiv.appendChild(div);
-            }
-        });
-        */
-
-        let data = [
-            {
-                "url": "https://www.israelnationalnews.com/News/News.aspx/298867",
-                "title": "Abbas receives first dose of COVID-19 vaccine",
-                "urlToImage": "http://u.a7.org/pictures/799/799624.jpg",
-                "content": "Palestinian Authority (PA) chairman Mahmoud Abbas on Saturday received the first jab of the COVID-19 vaccine, the WAFA news agency reported.\r\nAbbas urged Palestinian Arabs to continue to adhere to th… [+86 chars]"
-            },
-            { "url": "https://www.israelnationalnews.com/News/News.aspx/298867", "title": "Abbas receives first dose of COVID-19 vaccine", "urlToImage": "http://u.a7.org/pictures/799/799624.jpg", "content": "Palestinian Authority (PA) chairman Mahmoud Abbas on Saturday received the first jab of the COVID-19 vaccine, the WAFA news agency reported.\r\nAbbas urged Palestinian Arabs to continue to adhere to th… [+86 chars]" },
-            { "url": "https://www.israelnationalnews.com/News/News.aspx/298867", "title": "Abbas receives first dose of COVID-19 vaccine", "urlToImage": "http://u.a7.org/pictures/799/799624.jpg", "content": "Palestinian Authority (PA) chairman Mahmoud Abbas on Saturday received the first jab of the COVID-19 vaccine, the WAFA news agency reported.\r\nAbbas urged Palestinian Arabs to continue to adhere to th… [+86 chars]" },
-            { "url": "https://www.israelnationalnews.com/News/News.aspx/298867", "title": "Abbas receives first dose of COVID-19 vaccine", "urlToImage": "http://u.a7.org/pictures/799/799624.jpg", "content": "Palestinian Authority (PA) chairman Mahmoud Abbas on Saturday received the first jab of the COVID-19 vaccine, the WAFA news agency reported.\r\nAbbas urged Palestinian Arabs to continue to adhere to th… [+86 chars]" },
-            { "url": "https://www.israelnationalnews.com/News/News.aspx/298867", "title": "Abbas receives first dose of COVID-19 vaccine", "urlToImage": "http://u.a7.org/pictures/799/799624.jpg", "content": "Palestinian Authority (PA) chairman Mahmoud Abbas on Saturday received the first jab of the COVID-19 vaccine, the WAFA news agency reported.\r\nAbbas urged Palestinian Arabs to continue to adhere to th… [+86 chars]" }
-        ]
-        let div;
-        let img;
-        let newsdiv = document.getElementById('googlenews');
-        for (i in data) {
-
-            a = document.createElement('a');
+                a = document.createElement('a');
             a.target = "_blank";
             div = document.createElement('div');
             fillerdiv = document.createElement('div');
@@ -692,7 +663,11 @@
             div.appendChild(fillerdiv);
             a.appendChild(div)
             newsdiv.appendChild(a);
-        }
+            }
+        });
+        
+
+
 
     </script>
     <script>
