@@ -2,7 +2,8 @@ const got = require("got");
 const { CookieJar } = require("tough-cookie");
 const open = require("open");
 const qs = require("qs");
-const Captcha = require("2captcha")
+const Captcha = require("2captcha");
+const { Sms } = require("./sms.js")
 let enabled = false;
 let date2;
 let time;
@@ -212,6 +213,13 @@ class ScheduleMT {
                                         if(JSON.parse(response5.body).action != "showerrors") {
                                             enabled = true;
                                             currentRunning[this.info.phone].status = "finished";
+                                            const Text = new Sms({
+                                                name: this.info.fName,
+                                                time: time,
+                                                date: date2,
+                                                phone: this.info.phone
+                                            });
+                                            Text.sendSms();
                                             return;
                                         } else {
                                             console.log("Error filling out form for "+this.info.phone+"...");
@@ -219,9 +227,6 @@ class ScheduleMT {
                                     }
                                 }
                             }
-                        }
-                        if(Object.keys(JSON.parse(response2.body)["AllDays"]).length == 0) {
-                            enabled = false;
                         }
                     } catch(e) {
                         //console.log(e)
