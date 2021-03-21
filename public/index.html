@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./tailwind.css">
     <link rel="stylesheet" href="./animations.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" type="image/png"
+        href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Flag_of_Maryland.svg/1200px-Flag_of_Maryland.svg.png">
 </head>
 
 <body class="font-body">
@@ -72,7 +74,8 @@
                         </div>
                         <div class="pb-12">
                             <!--COPYABLE ADD PEOPLE APPOINTMENTS-->
-                            <div class='flex bg-navblue w-full py-6 px-3 rounded-md text-white mt-3 hidden' id="appointmentBlock">
+                            <div class='flex bg-navblue w-full py-6 px-3 rounded-md text-white mt-3 hidden'
+                                id="appointmentBlock">
                                 <h1 style="flex:5 0 0" id="fullNameList">Nicholas Fettig</h1>
                                 <h1 style="flex:5 0 0">M&T Bank Stadium</h1>
                                 <h1 style="flex:2 0 0" id="scheduledTime">8:00 PM</h1>
@@ -85,11 +88,13 @@
                                 <h1 style="flex:2 0 0">12:12 PM</h1>
                             </div-->
 
-                            <div
-                                class='flex bg-navblue w-full h-56 rounded-md mt-3 flex items-center justify-center font-bold' id="noScheduledAppointments">
+                            <div class='flex bg-navblue w-full h-56 rounded-md mt-3 flex items-center justify-center font-bold'
+                                id="noScheduledAppointments">
                                 <div class="text-fillergray text-center">
                                     <h1 class="text-xl">No Scheduled Appointments</h1>
-                                    <h2 class="text-lg">(Click <span class="text-linkblue">here</span> to schedule one)
+                                    <h2 class="text-lg">(Click <span
+                                            class="text-linkblue hover:underline cursor-pointer"
+                                            id="clickhere">here</span> to schedule one)
                                     </h2>
                                 </div>
                             </div>
@@ -203,13 +208,16 @@
                             <img class="w-6 ml-6" src="./assets/play-circle.svg" alt="[]">
                         </button -->
                         <button
-                            class="ml-3 bg-highlightred py-1 px-4 flex flex-row justify-between text-bgblue font-semibold text-2xl rounded-sm items-center" onclick="stopTask()">
+                            class="bg-highlightred px-4 flex flex-row justify-between text-bgblue font-semibold text-2xl rounded-sm items-center"
+                            onclick="stopTask()">
                             <h1>Stop</h1>
                             <img class="w-6 ml-6" src="./assets/stop-circle.svg" alt="[]">
                         </button>
-                        <input type="input" class="formdefault ml-auto text-lg" placeholder="Phone # for Status" id="searchInput"/>
+                        <input type="input" class="formdefault ml-auto text-lg" placeholder="Phone # for Status"
+                            id="searchInput" />
                         <button
-                            class="mt-4 ml-2 flex bg-formbg p-2 border border-formoutline rounded-md items-center  hvrbutton" onclick="checkSchedule()">
+                            class="mt-4 ml-2 flex bg-formbg px-2 border border-formoutline rounded-md items-center  hvrbutton"
+                            onclick="checkSchedule()">
                             <h1 class="text-formoutline text-lg mr-3 font-semibold">Search</h1>
                             <img src="./assets/search.svg" class="" alt="">
                         </button>
@@ -268,9 +276,11 @@
                         <h1 id="Question2" class="text-white text-6xl text-center px-8 hidden">Are you over the age
                             of
                             60?</h1>
-                        <h1 id="Question3" class="text-white text-6xl text-center px-8 hidden">Do you have any of
+                        <h1 id="Question3" class="text-white text-3xl text-center px-8 hidden">Do you have any of
                             these
-                            symptoms?</h1>
+                            symptoms:<span> Fever or chills, Cough, Shortness of breath or difficulty breathing,
+                                Fatigue, Muscle or body aches, Headache, New loss of taste or smell, Sore throat,
+                                Congestion or runny nose, Nausea or vomiting, Diarrhea</span>?</h1>
                         <h1 id="Question4" class="text-white text-6xl text-center px-8 hidden">Are you currently
                             feeling
                             sick?</h1>

@@ -24,6 +24,7 @@ let bar5 = document.getElementById("bar5")
 
 let selected = "absolute w-1.5 h-full bg-highlightblue top-0 right-0"
 let currentQuestion = 0
+let clickHere = document.querySelector('#clickhere')
 
 const q0 = document.querySelector('#Question0')
 const q1 = document.querySelector('#Question1')
@@ -57,7 +58,7 @@ function introLoad() {
     currentQuestion = 0
     q1.className = "text-white text-6xl text-center px-8 hidden"
     q2.className = "text-white text-6xl text-center px-8 hidden"
-    q3.className = "text-white text-6xl text-center px-8 hidden"
+    q3.className = "text-white text-3xl text-center px-8 hidden"
     q4.className = "text-white text-6xl text-center px-8 hidden"
     q5.className = "text-white text-6xl text-center px-8 hidden"
     q6.className = "text-white text-6xl text-center px-8 hidden"
@@ -104,6 +105,30 @@ button1.addEventListener('click', () => {
     bar1.className = "absolute w-1.5 h-full bg-highlightblue top-0 right-0"
     button1.className = "w-full bg-bgblue relative cursor-pointer"
 })
+clickHere.addEventListener('click', () => {
+    page1.className = "h-screen flex-grow flex flex-col hidden"
+    page3.className = "h-screen flex-grow flex flex-col hidden"
+    page4.className = "h-screen flex-grow flex flex-col hidden"
+    page5.className = "h-screen flex-grow flex flex-col hidden"
+    image1.src = "./assets/info.svg"
+    image3.src = "./assets/edit-3.svg"
+    image4.src = "./assets/pie-chart.svg"
+    image5.src = "./assets/globe.svg"
+    bar1.className = "absolute w-1.5 h-full bg-highlightblue top-0 right-0 hidden"
+    bar3.className = "absolute w-1.5 h-full bg-highlightblue top-0 right-0 hidden"
+    bar4.className = "absolute w-1.5 h-full bg-highlightblue top-0 right-0 hidden"
+    bar5.className = "absolute w-1.5 h-full bg-highlightblue top-0 right-0 hidden"
+    button1.className = "w-full bg-transparent relative cursor-pointer"
+    button3.className = "w-full bg-transparent relative cursor-pointer"
+    button4.className = "w-full bg-transparent relative cursor-pointer"
+    button5.className = "w-full bg-transparent relative cursor-pointer"
+
+    page2.className = "h-screen flex-grow flex flex-col"
+    image2.src = "./assets/calendarselected.svg"
+    bar2.className = "absolute w-1.5 h-full bg-highlightblue top-0 right-0"
+    button2.className = "w-full bg-bgblue relative cursor-pointer"
+})
+
 button2.addEventListener('click', () => {
     page1.className = "h-screen flex-grow flex flex-col hidden"
     page3.className = "h-screen flex-grow flex flex-col hidden"
@@ -242,13 +267,13 @@ async function nextQuestion(index) {
         tl.fromTo(q2, 1, { opacity: 1 }, { opacity: 0 }, 0)
         await sleep(1000)
         q2.className = "text-white text-6xl text-center px-8 hidden"
-        q3.className = "text-white text-6xl text-center px-8 opacity-0"
+        q3.className = "text-white text-3xl text-center px-8 opacity-0"
         tl.fromTo(q3, 1, { opacity: 0 }, { opacity: 1 }, 1)
     } else if (index === 3) {
         const tl = new TimelineMax({ delay: 0.2 });
         tl.fromTo(q3, 1, { opacity: 1 }, { opacity: 0 }, 0)
         await sleep(1000)
-        q3.className = "text-white text-6xl text-center px-8 hidden"
+        q3.className = "text-white text-3xl text-center px-8 hidden"
         q4.className = "text-white text-6xl text-center px-8 opacity-0"
         tl.fromTo(q4, 1, { opacity: 0 }, { opacity: 1 }, 1)
     } else if (index === 4) {
