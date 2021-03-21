@@ -7,8 +7,6 @@ let enabled = false;
 let date2;
 let time;
 let currentRunning = {};
-const CaptchaTask = new CaptchaGen();
-CaptchaTask.generateCaptchas();
 class CaptchaGen {
     constructor() {
         this.captchaList = [];
@@ -219,6 +217,8 @@ class ScheduleMT {
         }
     }
 }
+const CaptchaTask = new CaptchaGen();
+CaptchaTask.generateCaptchas();
 module.exports = {
     ScheduleMT: ScheduleMT,
     ScheduleChecker: ScheduleChecker
