@@ -11,6 +11,10 @@ module.exports = {
         'headerblue': '#192041',
         'fillergray': '#50546A',
         "linkblue": '#4760E8',
+        'formoutline': '#696795',
+        'formbg': '#363D60',
+        'highlightred': '#FF8A8A',
+        'darkred': '#FF4040'
       },
       fontFamily: {
         body: ['Montserrat']

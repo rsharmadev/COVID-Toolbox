@@ -76,3 +76,58 @@ button, .continue, .fluid {
 .hvrbutton:active {
     background-color: #262d53;
 }
+
+*::placeholder {
+    color: #696795 !important;
+}
+
+select {
+    -webkit-appearance: menulist-button !important;
+  }
+
+  select:invalid {
+    color: green !important;
+  }
+
+@media only screen and (min-width:1280px) {
+    .heightspec {
+        height:calc(100vh - 210px)
+    }
+}
+
+.Minimal::-webkit-scrollbar {
+    width: 10px;
+    height:10px;
+}
+.Minimal::-webkit-scrollbar-corner {
+    background: transparent;
+}
+.Minimal::-webkit-scrollbar-thumb {
+    background: #121524; 
+    border-radius: 10px;
+}
+.Minimal::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+.Minimal::-webkit-scrollbar-thumb:hover {
+    background: #171927; 
+}
+
+
+.Whole::-webkit-scrollbar {
+    width: 10px;
+    height:10px;
+}
+.Whole::-webkit-scrollbar-corner {
+    background: transparent;
+}
+.Whole::-webkit-scrollbar-thumb {
+    background: #202541; 
+    border-radius: 10px;
+}
+.Whole::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+.Whole::-webkit-scrollbar-thumb:hover {
+    background: #262a42; 
+}
