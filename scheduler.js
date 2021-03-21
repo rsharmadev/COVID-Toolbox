@@ -42,8 +42,8 @@ class CaptchaGen {
     }
 }
 class ScheduleChecker {
-    constructor(phone) {
-        this.phone = phone;
+    constructor(info) {
+        this.phone = info.phone;
     }
     async check() {
         if(currentRunning[this.phone]) {
