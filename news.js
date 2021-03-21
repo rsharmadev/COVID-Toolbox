@@ -1,11 +1,12 @@
 const got = require("got");
+const qs = require("qs");
 
 class News {
     constructor() {
-        this.query = "vaccine";
+        this.query = "md covid vaccine";
     }
     async grabNews() {
-        var response = await got.get(`https://newsapi.org/v2/everything?q=${this.query}&from=2021-03-18&sortBy=publishedAt&apiKey=cd0b9c1adc62482683bf628e3993dd34`);
+        var response = await got.get(`https://newsapi.org/v2/everything?${qs.stringify({q:this.query})}&from=2021-03-18&sortBy=relevancy&apiKey=cd0b9c1adc62482683bf628e3993dd34`);
         this.response = [];
         for(var i = 0; i < 5; i++) {
             this.response.push({})
