@@ -347,7 +347,38 @@
             <div class="h-full w-full flex-grow px-16 py-10 flex flex-row overflow-y-auto Whole">
                 <!--Real Content-->
                 <div style="flex: 5 0 0" class="h-full">
-
+                    <canvas id="myChart" width="400" height="400"></canvas>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+                    <script>
+                    var ctx = document.getElementById('myChart').getContext('2d');
+                    let labels;
+                    let data1;
+                    let data2;
+                    fetch('/api/graphData')
+                    .then(response => response.json())
+                    .then(data => {
+                        labels = data['data1']['labels'];
+                        console.log(labels);
+                        data1 = data['data1']['data'];
+                        console.log(data1);
+                        data2 = data['data3']['data'];
+                        console.log(data2);
+                    })
+                    var myChart = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: '# of Vaccinations',
+                                data: data1
+                            }, {
+                                label: '# of Cases',
+                                data: data2
+                            }
+                                ]
+                        }
+                    });
+                    </script>
                 </div>
                 <div style="flex: 3 0 0" class="h-full">
 
