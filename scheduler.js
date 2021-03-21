@@ -46,7 +46,7 @@ class ScheduleChecker {
     }
     async check() {
         if(currentRunning[this.phone]) {
-            return {status: currentRunning[this.phone].status, fullName: currentRunning[this.phone].fullName, phone: this.phone, stopped:false};
+            return {status: currentRunning[this.phone].status, fullName: currentRunning[this.phone].fullName, phone: this.phone, stopped:false, time: currentRunning[this.phone].time};
         } else {
             return {error: "Error"}
         }
@@ -64,7 +64,7 @@ class StopSchedule {
 class ScheduleMT {
     constructor(info) {
         this.info = info;
-        currentRunning[this.info.phone] = {fullName:this.info.fName+" "+this.info.lName, status: "running", stopped:false}
+        currentRunning[this.info.phone] = {fullName:this.info.fName+" "+this.info.lName, status: "running", stopped:false, time: ""}
     }
     async sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
@@ -211,6 +211,7 @@ class ScheduleMT {
                                         });
                                         console.log(response5.body);
                                         if(JSON.parse(response5.body).action != "showerrors") {
+                                            currentRunning[this.info.phone].time = Date.now();
                                             enabled = true;
                                             currentRunning[this.info.phone].status = "finished";
                                             const Text = new Sms({

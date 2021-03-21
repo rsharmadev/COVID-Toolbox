@@ -72,21 +72,21 @@
                         </div>
                         <div class="pb-12">
                             <!--COPYABLE ADD PEOPLE APPOINTMENTS-->
-                            <div class='flex bg-navblue w-full py-6 px-3 rounded-md text-white mt-3'>
-                                <h1 style="flex:5 0 0">Nicholas Fettig</h1>
-                                <h1 style="flex:5 0 0">Six Flags</h1>
-                                <h1 style="flex:2 0 0">8:00 PM</h1>
+                            <div class='flex bg-navblue w-full py-6 px-3 rounded-md text-white mt-3 hidden' id="appointmentBlock">
+                                <h1 style="flex:5 0 0" id="fullNameList">Nicholas Fettig</h1>
+                                <h1 style="flex:5 0 0">M&T Bank Stadium</h1>
+                                <h1 style="flex:2 0 0" id="scheduledTime">8:00 PM</h1>
                             </div>
                             <!--COPYABLE-->
 
-                            <div class='flex bg-navblue w-full py-6 px-3 rounded-md text-white mt-3'>
+                            <!--div class='flex bg-navblue w-full py-6 px-3 rounded-md text-white mt-3'>
                                 <h1 style="flex:5 0 0">Adam Lederer</h1>
                                 <h1 style="flex:5 0 0">M&T Bank Stadium</h1>
                                 <h1 style="flex:2 0 0">12:12 PM</h1>
-                            </div>
+                            </div-->
 
                             <div
-                                class='flex bg-navblue w-full h-56 rounded-md mt-3 flex items-center justify-center font-bold'>
+                                class='flex bg-navblue w-full h-56 rounded-md mt-3 flex items-center justify-center font-bold' id="noScheduledAppointments">
                                 <div class="text-fillergray text-center">
                                     <h1 class="text-xl">No Scheduled Appointments</h1>
                                     <h2 class="text-lg">(Click <span class="text-linkblue">here</span> to schedule one)
@@ -839,6 +839,15 @@
                                     document.getElementById("currentStatus").classList.remove("text-highlightred");
                                 } catch (e) {
                                 }
+                                var scheduleTime = new Date(jsonResponse.time);
+                                var hours = scheduleTime.getHours();
+                                var minutes = "0" + scheduleTime.getMinutes();
+                                var formattedTime = hours + ':' + minutes.substr(-2)
+                                document.getElementById("scheduledTime").innerHTML = formattedTime;
+                                document.getElementById("fullNameList").innerHTML = jsonResponse.fullName;
+                                document.getElementById("appointmentBlock").classList.remove("hidden");
+                                document.getElementById("noScheduledAppointments").classList.add("hidden");
+
                                 document.getElementById("currentStatus").classList.add("text-highlightgreen");
                             } else if (jsonResponse.status == "running") {
                                 document.getElementById("currentStatus").innerHTML = "Still Running";
