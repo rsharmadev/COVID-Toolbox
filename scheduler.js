@@ -45,16 +45,25 @@ class ScheduleChecker {
     }
     async check() {
         if(currentRunning[this.phone]) {
-            return currentRunning[this.phone].status;
+            return {status: currentRunning[this.phone].status, fullName: currentRunning[this.phone].fullName, phone: this.phone, stopped:false};
         } else {
-            return "Error"
+            return {error: "Error"}
         }
+    }
+}
+class StopSchedule {
+    constructor(info) {
+        this.phone = info.phone;
+    }
+    async stopTask() {
+        currentRunning[this.phone].stopped = true;
+        currentRunning[this.phone].status = "stopped";
     }
 }
 class ScheduleMT {
     constructor(info) {
         this.info = info;
-        currentRunning[this.info.phone] = {fullName:this.info.fName+" "+this.info.lName,status: false}
+        currentRunning[this.info.phone] = {fullName:this.info.fName+" "+this.info.lName, status: "running", stopped:false}
     }
     async sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
@@ -62,6 +71,9 @@ class ScheduleMT {
     async monitor() {
         console.log("Starting Monitor for M&T Bank Stadium...")
         while(true) {
+            if(currentRunning[this.info.phone].stopped == true) {
+                return;
+            }
             this.cookieJar = new CookieJar();
             var response1 = await got.get("https://signupandschedule.umm.edu/mychart/SignUpAndSchedule/EmbeddedSchedule?id=RES^84002860&VT=22759", {
                 headers: {
@@ -125,6 +137,9 @@ class ScheduleMT {
                                         cookieJar: this.cookieJar
                                     });
                                     var sessionToken = JSON.parse(response3.body).SessionToken;
+                                    if(currentRunning[this.info.phone].stopped == true) {
+                                        return;
+                                    }
                                     var response4 = await got.post("https://signupandschedule.umm.edu/mychart/OpenScheduling/OpenScheduling/MakeReservation", {
                                         headers: {
                                             'user-agent': 'Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)',
@@ -151,6 +166,9 @@ class ScheduleMT {
                                         console.log("Too late");
                                     } else {
                                         var reservationKey = JSON.parse(response4.body).ReservationKey;
+                                        if(currentRunning[this.info.phone].stopped == true) {
+                                            return;
+                                        }
                                         var response5 = await got.post("https://signupandschedule.umm.edu/mychart/OpenScheduling/SignupAndSchedule/Signup?noCache=0.9851966613756604", {
                                             headers: {
                                                 'user-agent': 'Mozilla/5.0 (Linux; Android 5.0; SM-G920A) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; AdsBot-Google-Mobile; +http://www.google.com/mobile/adsbot.html)',
@@ -193,7 +211,7 @@ class ScheduleMT {
                                         console.log(response5.body);
                                         if(JSON.parse(response5.body).action != "showerrors") {
                                             enabled = true;
-                                            currentRunning[this.info.phone].status = true;
+                                            currentRunning[this.info.phone].status = "finished";
                                             return;
                                         } else {
                                             console.log("Error filling out form for "+this.info.phone+"...");
@@ -221,5 +239,6 @@ const CaptchaTask = new CaptchaGen();
 CaptchaTask.generateCaptchas();
 module.exports = {
     ScheduleMT: ScheduleMT,
-    ScheduleChecker: ScheduleChecker
+    ScheduleChecker: ScheduleChecker,
+    StopSchedule: StopSchedule
 }

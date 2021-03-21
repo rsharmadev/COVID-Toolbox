@@ -1,6 +1,6 @@
 const { Data } = require('./data.js');
 const { News } = require('./news.js');
-const { ScheduleMT, ScheduleChecker } = require('./scheduler.js');
+const { ScheduleMT, ScheduleChecker, StopSchedule } = require('./scheduler.js');
 const path = require('path');
 const express = require("express");
 const app = express();
@@ -22,10 +22,22 @@ app.get('/api/newsData', async (req, res) => {
 app.post('/api/newSchedule', async (req, res) => {
     const Task = new ScheduleMT(req.body)
     Task.monitor();
+    res.send(JSON.stringify({
+        status: "started"
+    }))
 });
 app.post('/api/checkSchedule', async (req, res) => {
+    console.log(req.body)
     const Task = new ScheduleChecker(req.body)
-    Task.monitor();
+    var status = await Task.check();
+    res.send(JSON.stringify(status));
+});
+app.post('/api/stopSchedule', async (req, res) => {
+    const Task = new StopSchedule(req.body)
+    var status = Task.stopTask();
+    res.send(JSON.stringify({
+        status: "stopped"
+    }));
 });
 app.listen(3000, () => {
     console.log(`Example app listening at http://localhost:${3000}`);

@@ -120,18 +120,17 @@
                             <div class="w-full">
                                 <div class="flex flex-row w-full">
                                     <input type="input" class="formdefault mr-2" style="flex: 1 0 0"
-                                        placeholder="First Name">
+                                        placeholder="First Name" id="fName">
                                     <input type="input" class="formdefault ml-2" style="flex: 1 0 0"
-                                        placeholder="Last Name">
+                                        placeholder="Last Name" id="lName">
                                 </div>
-                                <input type="input" class="formdefault w-full" placeholder="Email Address">
-                                <input type="input" class="formdefault w-full" placeholder="Phone Number">
+                                <input type="input" class="formdefault w-full" placeholder="Email Address" id="email">
+                                <input type="input" class="formdefault w-full" placeholder="Phone Number" id="phone">
                                 <div class="flex flex-row w-full pb-4">
                                     <input type="input" class="formdefault mr-2" style="flex: 3 0 0"
-                                        placeholder="Date of Birth (MM / DD / YYYY)">
-                                    <select class="formdefault ml-2 font-normal" style="flex: 1 0 0">
-                                        <option selected default disabled invalid hidden> -- Sex --
-                                        </option>
+                                        placeholder="Date of Birth (MM / DD / YYYY)" id="dob">
+                                    <select class="formdefault ml-2 font-normal" style="flex: 1 0 0" id="gender">
+                                        <option selected default disabled invalid hidden> -- Sex -- </option>
                                         <option>Female</option>
                                         <option>Male</option>
                                         <option>Other</option>
@@ -142,39 +141,39 @@
                                     <label class="text-xl text-gray-100 ">Race of Patient:</label>
                                     <div class="flex flex-row text-white text-lg pt-2">
                                         <div style="flex: 1 0 0">
-                                            <input type="checkbox"><label class="pl-4">White</label><br>
-                                            <input type="checkbox"><label class="pl-4">Black or African
+                                            <input type="checkbox" id="whiteCheck"><label class="pl-4">White</label><br>
+                                            <input type="checkbox" id="blackCheck"><label class="pl-4">Black or African
                                                 American</label><br>
-                                            <input type="checkbox"><label class="pl-4">Asian</label><br>
-                                            <input type="checkbox"><label class="pl-4">American Indian or
+                                            <input type="checkbox" id="asianCheck"><label class="pl-4">Asian</label><br>
+                                            <input type="checkbox" id="indCheck"><label class="pl-4">American Indian or
                                                 Alaskan</label><br>
                                         </div>
                                         <div style="flex: 1 0 0">
-                                            <input type="checkbox"><label class="pl-4">Unknown</label><br>
-                                            <input type="checkbox"><label class="pl-4">Native Hawaiian</label><br>
-                                            <input type="checkbox"><label class="pl-4">Other</label><br>
-                                            <input type="checkbox"><label class="pl-4">Decline to Answer</label>
+                                            <input type="checkbox" id="urCheck"><label class="pl-4">Unknown</label><br>
+                                            <input type="checkbox" id="nhCheck"><label class="pl-4">Native Hawaiian</label><br>
+                                            <input type="checkbox" id="orCheck"><label class="pl-4">Other</label><br>
+                                            <input type="checkbox" id="drCheck"><label class="pl-4">Decline to Answer</label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div>
-                                <hr style="width:100%;" class="mx-auto my-4 opacity-50">
+                                <hr style="width:100%;" class="mx-auto my-4 opacity-50" >
                                 <h1 class="text-white text-2xl font-medium">Address
                                 </h1>
-                                <input type="input" class="formdefault w-full" placeholder="Address 1">
+                                <input type="input" class="formdefault w-full" placeholder="Address 1" id="address1">
                                 <div class="flex flex-row w-full">
                                     <input type="input" class="formdefault mr-2" style="flex: 3 0 0"
                                         placeholder="Address 2">
                                     <input type="input" class="formdefault ml-2" style="flex: 1 0 0"
-                                        placeholder="State">
+                                        placeholder="State" id="state">
                                 </div>
                                 <div class="flex flex-row w-full">
-                                    <input type="input" class="formdefault mr-2" style="flex: 3 0 0" placeholder="City">
-                                    <input type="input" class="formdefault ml-2" style="flex: 1 0 0" placeholder="Zip">
+                                    <input type="input" class="formdefault mr-2" style="flex: 3 0 0" placeholder="City" id="city">
+                                    <input type="input" class="formdefault ml-2" style="flex: 1 0 0" placeholder="Zip" id="zip">
                                 </div>
                                 <center><button
-                                        class="bg-highlightblue text-bgblue font-semibold py-2 px-10 text-2xl mt-8 rounded-lg">Save</button>
+                                        class="bg-highlightblue text-bgblue font-semibold py-2 px-10 text-2xl mt-8 rounded-lg" onclick="submitSchedule()">Start</button>
                                 </center>
                             </div>
                         </div>
@@ -197,18 +196,18 @@
                     </div>
 
                     <div class="flex flex-row mt-12">
-                        <button
+                        <!-- button
                             class="bg-highlightblue py-1.5 px-4 flex flex-row justify-between text-bgblue font-semibold text-2xl rounded-sm items-center">
                             <h1>Start</h1>
                             <img class="w-6 ml-6" src="./assets/play-circle.svg" alt="[]">
-                        </button>
+                        </button -->
                         <button
-                            class="ml-3 bg-highlightred py-1.5 px-4 flex flex-row justify-between text-bgblue font-semibold text-2xl rounded-sm items-center">
+                            class="ml-3 bg-highlightred py-1.5 px-4 flex flex-row justify-between text-bgblue font-semibold text-2xl rounded-sm items-center" id="stopTask" onclick="stopTask()">
                             <h1>Stop</h1>
                             <img class="w-6 ml-6" src="./assets/stop-circle.svg" alt="[]">
                         </button>
-                        <input type="input" class="formdefault ml-auto text-lg mb-4" placeholder="Phone # for Status" />
-                        <button>
+                        <input type="input" class="formdefault ml-auto text-lg mb-4" placeholder="Phone # for Status" id="searchInput" />
+                        <button onclick="checkSchedule()">
                             <img src="./assets/search.svg"
                                 class="bg-formbg p-2 ml-2 border border-formoutline rounded-md" alt="">
                         </button>
@@ -225,18 +224,18 @@
                             <h1 style="flex:5 0 0">123-123-1234</h1>
                             <h1 class="text-highlightblue font-semibold" style="flex:2 0 0">Running</h1>
                         </div>-->
-                        <div class='flex bg-navblue w-full py-4 px-3 rounded-md text-white mt-3 font-medium'>
-                            <h1 style="flex:5 0 0">Nicholas Fettig</h1>
-                            <h1 style="flex:5 0 0">123-123-1234</h1>
-                            <h1 class="text-highlightred font-semibold" style="flex:2 0 0">Stopped</h1>
+                        <div class='flex bg-navblue w-full py-4 px-3 rounded-md text-white mt-3 font-medium hidden' id="taskBox">
+                            <h1 style="flex:5 0 0" id="fNameBox">John Doe</h1>
+                            <h1 style="flex:5 0 0" id="phoneBox">123-123-1234</h1>
+                            <h1 class="font-semibold" style="flex:2 0 0" id="currentStatus">Stopped</h1>
                         </div>
-                        <!--<div
-                            class='flex bg-navblue w-full py-20 px-9 rounded-md text-fillergray mt-3 font-medium items-center justify-center text-center font-semibold'>
+                        <div
+                            class='flex bg-navblue w-full py-20 px-9 rounded-md text-fillergray mt-3 font-medium items-center justify-center text-center font-semibold' id="noFound">
                             <div>
-                                <h1 class="text-2xl">Appointment Auto-scheduler not running</h1>
+                                <h1 class="text-2xl">No Appointments Found</h1>
                                 <h1 class="text-lg">(Fill the information on the left and press start) </h1>
                             </div>
-                        </div>-->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -620,6 +619,181 @@
             newsdiv.appendChild(div);
         }
 
+    </script>
+    <script>
+        async function submitSchedule() {
+            var fName = document.getElementById("fName").value;
+            var lName = document.getElementById("lName").value;
+            var phone = document.getElementById("phone").value;
+            var dob = document.getElementById("dob").value;
+            var gender = document.getElementById("gender").value;
+            var genderNumber = "-1";
+            if(gender == "Female") {
+                genderNumber = "1"
+            } else if(gender == "Male") {
+                genderNumber = "2"
+            } else if(gender == "Other" || gender == "Prefer not to Say") {
+                genderNumber = "3"
+            } else {
+                console.log("Error... did not fill out form...");
+                return;
+            }
+            var white = document.getElementById("whiteCheck").checked;
+            var black = document.getElementById("blackCheck").checked;
+            var asian = document.getElementById("asianCheck").checked;
+            var indAlas = document.getElementById("indCheck").checked;
+            var uRace = document.getElementById("urCheck").checked;
+            var nativeH = document.getElementById("nhCheck").checked;
+            var oRace = document.getElementById("orCheck").checked;
+            var dRace = document.getElementById("drCheck").checked;
+            var raceNumber = "-1"
+            if(white) {
+                raceNumber = "1"
+            } else if(black) {
+                raceNumber = "2"
+            } else if(asian) {
+                raceNumber = "3"
+            } else if(indAlas) {
+                raceNumber = "4"
+            } else if(uRace) {
+                raceNumber = "5"
+            } else if(nativeH) {
+                raceNumber = "6"
+            } else if(oRace) {
+                raceNumber = "7"
+            } else if(dRace) {
+                raceNumber = "5"
+            } else {
+                console.log("Error... did not fill out form...");
+                return;
+            }
+            var address1 = document.getElementById("address1").value;
+            var city = document.getElementById("city").value;
+            var zip = document.getElementById("zip").value;
+            document.getElementById("fName").value = "";
+            document.getElementById("lName").value = "";
+            document.getElementById("phone").value = "";
+            document.getElementById("dob").value = "";
+            document.getElementById("gender").value = " -- Sex -- ";
+            document.getElementById("whiteCheck").checked = false;
+            document.getElementById("blackCheck").checked = false;
+            document.getElementById("asianCheck").checked = false;
+            document.getElementById("indCheck").checked = false;
+            document.getElementById("urCheck").checked = false;
+            document.getElementById("nhCheck").checked = false;
+            document.getElementById("orCheck").checked = false;
+            document.getElementById("drCheck").checked = false;
+            document.getElementById("address1").value = "";
+            document.getElementById("city").value = "";
+            document.getElementById("zip").value = "";
+            document.getElementById("state").value = "";
+            document.getElementById("email").value = "";
+            const response = await fetch("/api/newSchedule", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    fName: fName,
+                    lName: lName,
+                    gender: genderNumber,
+                    dob: dob,
+                    race: raceNumber,
+                    address1: address1,
+                    city: city,
+                    zip: zip,
+                    phone: phone
+                })
+            });
+            console.log(response.json());
+            console.log("Started Task!");
+        }
+        let searchInput = "";
+        let workingPhone = false;
+        async function checkSchedule() {
+            var phone = document.getElementById("searchInput").value;
+            searchInput = phone;
+            console.log(searchInput)
+            if(searchInput == "") {
+                workingPhone = false;
+            } else {
+                var jsonPhone = {
+                    phone: phone
+                };
+                const response = fetch("/api/checkSchedule", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(jsonPhone)
+                }).then(response => response.json())
+                .then(data => {
+                    let jsonResponse = data;
+                    if(jsonResponse.error) {
+                        workingPhone = false;
+                        document.getElementById("noFound").classList.remove("hidden");
+                        document.getElementById("taskBox").classList.add("hidden");
+                    } else {
+                        workingPhone = true;
+                        document.getElementById("noFound").classList.add("hidden");
+                        console.log(jsonResponse);
+                        document.getElementById("fNameBox").innerHTML = jsonResponse.fullName;
+                        document.getElementById("phoneBox").innerHTML = jsonResponse.phone;
+                        if(jsonResponse.status == "finished") {
+                            document.getElementById("currentStatus").innerHTML = "Scheduled!";
+                            try {
+                                document.getElementById("currentStatus").classList.remove("text-highlightyellow");
+                                document.getElementById("currentStatus").classList.remove("text-highlightred");
+                            } catch(e) {
+                            }
+                            document.getElementById("currentStatus").classList.add("text-highlightgreen");
+                        } else if(jsonResponse.status == "running") {
+                            document.getElementById("currentStatus").innerHTML = "Still Running";
+                            try {
+                                document.getElementById("currentStatus").classList.remove("text-highlightred");
+                                document.getElementById("currentStatus").classList.remove("text-highlightgreen");
+                            } catch(e) {
+                            }
+                            document.getElementById("currentStatus").classList.add("text-highlightyellow");
+                        } else if(jsonResponse.status == "stopped") {
+                            document.getElementById("currentStatus").innerHTML = "Stopped";
+                            try {
+                                document.getElementById("currentStatus").classList.remove("text-highlightyellow");
+                                document.getElementById("currentStatus").classList.remove("text-highlightgreen");
+                            } catch(e) {
+                            }
+                            document.getElementById("currentStatus").classList.add("text-highlightred");
+                        }
+                        document.getElementById("taskBox").classList.remove("hidden");
+                    }
+                });
+            }
+        }
+        async function stopTask() {
+            if(workingPhone == false) {
+                return;
+            } else if(workingPhone == true) {
+                const response = fetch("/api/stopSchedule", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        phone: searchInput
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("currentStatus").innerHTML = "Stopped";
+                    try {
+                        document.getElementById("currentStatus").classList.remove("text-highlightyellow");
+                        document.getElementById("currentStatus").classList.remove("text-highlightgreen");
+                    } catch(e) {
+                    }
+                    document.getElementById("currentStatus").classList.add("text-highlightred");
+                });
+            }
+        }
     </script>
     <script src="app.js"></script>
 </body>
