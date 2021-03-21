@@ -219,3 +219,7 @@ class ScheduleMT {
         }
     }
 }
+module.exports = {
+    ScheduleMT: ScheduleMT,
+    ScheduleChecker: ScheduleChecker
+}
