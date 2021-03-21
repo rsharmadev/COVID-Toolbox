@@ -16,7 +16,7 @@ class CaptchaGen {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
     async generateCaptchas() {
-        const solver = new Captcha.Solver("d7a73c14085dc2c6f579e70548f7a6c4");
+        const solver = new Captcha.Solver("");
         while(true) {
             solver.recaptcha("6LffjDEaAAAAAB36hjaQJmIkZTNDrpyjDMugfvZt", "https://signupandschedule.umm.edu/mychart/SignUpAndSchedule/EmbeddedSchedule?id=RES^84002860&VT=22759")
             .then(async (res) => {

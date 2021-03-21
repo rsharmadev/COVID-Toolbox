@@ -6,7 +6,7 @@ class News {
         this.query = "md covid vaccine";
     }
     async grabNews() {
-        var response = await got.get(`https://newsapi.org/v2/everything?${qs.stringify({q:this.query})}&from=2021-03-18&sortBy=relevancy&apiKey=cd0b9c1adc62482683bf628e3993dd34`);
+        var response = await got.get(`https://newsapi.org/v2/everything?${qs.stringify({q:this.query})}&from=2021-03-18&sortBy=relevancy&apiKey=`);
         this.response = [];
         for(var i = 0; i < 4; i++) {
             this.response.push({})

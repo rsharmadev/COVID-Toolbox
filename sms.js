@@ -1,11 +1,11 @@
-const accountSid = 'AC9e4a91e0e6865a7d8c5534766f11d532';
-const authToken = 'e733ebfcc56a2c399786ae95c9f5b734';
+const accountSid = '';
+const authToken = '';
 const client = require('twilio')(accountSid, authToken);
 
 class Sms {
     constructor(info) {
-        this.accountSid = 'AC9e4a91e0e6865a7d8c5534766f11d532';
-        this.authToken = 'e733ebfcc56a2c399786ae95c9f5b734';
+        this.accountSid = '';
+        this.authToken = '';
         this.from_number = '2393604245'
         this.info = info;
     }
