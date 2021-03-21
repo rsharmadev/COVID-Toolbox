@@ -38,7 +38,7 @@
                 <div id="bar4" class="absolute w-1.5 h-full bg-highlightblue top-0 right-0 hidden"></div>
             </div>
 
-            <div class="w-full bg-transparent relative cursor-pointer" id="button5">
+            <div class="w-full bg-transparent relative cursor-pointer" id="button5" onclick="toggleHeatmap()">
                 <img id="image5" class="w-8 mx-auto py-5" src="./assets/globe.svg" alt="Charts">
                 <div id="bar5" class="absolute w-1.5 h-full bg-highlightblue top-0 right-0 hidden"></div>
             </div>
@@ -59,6 +59,10 @@
                 <div style="flex: 5 0 0" class="h-full text-white">
                     <h1 class="text-2xl">Current Events</h1>
                     <div id="googlenews">
+
+                        <div class="bg-navblue w-full p-5">
+
+                        </div>
                         <!--GOOGLE API OF CURRENT NEWS REGARDING COVID-->
                     </div>
                 </div>
@@ -116,18 +120,17 @@
                             <div class="w-full">
                                 <div class="flex flex-row w-full">
                                     <input type="input" class="formdefault mr-2" style="flex: 1 0 0"
-                                        placeholder="First Name">
+                                        placeholder="First Name" id="fName">
                                     <input type="input" class="formdefault ml-2" style="flex: 1 0 0"
-                                        placeholder="Last Name">
+                                        placeholder="Last Name" id="lName">
                                 </div>
-                                <input type="input" class="formdefault w-full" placeholder="Email Address">
-                                <input type="input" class="formdefault w-full" placeholder="Phone Number">
+                                <input type="input" class="formdefault w-full" placeholder="Email Address" id="email">
+                                <input type="input" class="formdefault w-full" placeholder="Phone Number" id="phone">
                                 <div class="flex flex-row w-full pb-4">
                                     <input type="input" class="formdefault mr-2" style="flex: 3 0 0"
-                                        placeholder="Date of Birth (MM / DD / YYYY)">
-                                    <select class="formdefault ml-2 font-normal" style="flex: 1 0 0">
-                                        <option selected default disabled invalid hidden> -- Sex --
-                                        </option>
+                                        placeholder="Date of Birth (MM / DD / YYYY)" id="dob">
+                                    <select class="formdefault ml-2 font-normal" style="flex: 1 0 0" id="gender">
+                                        <option selected default disabled invalid hidden> -- Sex -- </option>
                                         <option>Female</option>
                                         <option>Male</option>
                                         <option>Other</option>
@@ -138,18 +141,20 @@
                                     <label class="text-xl text-gray-100 ">Race of Patient:</label>
                                     <div class="flex flex-row text-white text-lg pt-2">
                                         <div style="flex: 1 0 0">
-                                            <input type="checkbox"><label class="pl-4">White</label><br>
-                                            <input type="checkbox"><label class="pl-4">Black or African
+                                            <input type="checkbox" id="whiteCheck"><label class="pl-4">White</label><br>
+                                            <input type="checkbox" id="blackCheck"><label class="pl-4">Black or African
                                                 American</label><br>
-                                            <input type="checkbox"><label class="pl-4">Asian</label><br>
-                                            <input type="checkbox"><label class="pl-4">American Indian or
+                                            <input type="checkbox" id="asianCheck"><label class="pl-4">Asian</label><br>
+                                            <input type="checkbox" id="indCheck"><label class="pl-4">American Indian or
                                                 Alaskan</label><br>
                                         </div>
                                         <div style="flex: 1 0 0">
-                                            <input type="checkbox"><label class="pl-4">Unknown</label><br>
-                                            <input type="checkbox"><label class="pl-4">Native Hawaiian</label><br>
-                                            <input type="checkbox"><label class="pl-4">Other</label><br>
-                                            <input type="checkbox"><label class="pl-4">Decline to Answer</label>
+                                            <input type="checkbox" id="urCheck"><label class="pl-4">Unknown</label><br>
+                                            <input type="checkbox" id="nhCheck"><label class="pl-4">Native
+                                                Hawaiian</label><br>
+                                            <input type="checkbox" id="orCheck"><label class="pl-4">Other</label><br>
+                                            <input type="checkbox" id="drCheck"><label class="pl-4">Decline to
+                                                Answer</label>
                                         </div>
                                     </div>
                                 </div>
@@ -158,19 +163,22 @@
                                 <hr style="width:100%;" class="mx-auto my-4 opacity-50">
                                 <h1 class="text-white text-2xl font-medium">Address
                                 </h1>
-                                <input type="input" class="formdefault w-full" placeholder="Address 1">
+                                <input type="input" class="formdefault w-full" placeholder="Address 1" id="address1">
                                 <div class="flex flex-row w-full">
                                     <input type="input" class="formdefault mr-2" style="flex: 3 0 0"
                                         placeholder="Address 2">
-                                    <input type="input" class="formdefault ml-2" style="flex: 1 0 0"
-                                        placeholder="State">
+                                    <input type="input" class="formdefault ml-2" style="flex: 1 0 0" placeholder="State"
+                                        id="state">
                                 </div>
                                 <div class="flex flex-row w-full">
-                                    <input type="input" class="formdefault mr-2" style="flex: 3 0 0" placeholder="City">
-                                    <input type="input" class="formdefault ml-2" style="flex: 1 0 0" placeholder="Zip">
+                                    <input type="input" class="formdefault mr-2" style="flex: 3 0 0" placeholder="City"
+                                        id="city">
+                                    <input type="input" class="formdefault ml-2" style="flex: 1 0 0" placeholder="Zip"
+                                        id="zip">
                                 </div>
                                 <center><button
-                                        class="bg-highlightblue text-bgblue font-semibold py-2 px-10 text-2xl mt-8 rounded-lg">Save</button>
+                                        class="bg-highlightblue text-bgblue font-semibold py-2 px-10 text-2xl mt-8 rounded-lg"
+                                        onclick="submitSchedule()">Start</button>
                                 </center>
                             </div>
                         </div>
@@ -197,7 +205,7 @@
                             class="bg-highlightblue py-1 px-4 flex flex-row justify-between text-bgblue font-semibold text-2xl rounded-sm items-center">
                             <h1>Start</h1>
                             <img class="w-6 ml-6" src="./assets/play-circle.svg" alt="[]">
-                        </button>
+                        </button -->
                         <button
                             class="ml-3 bg-highlightred py-1 px-4 flex flex-row justify-between text-bgblue font-semibold text-2xl rounded-sm items-center">
                             <h1>Stop</h1>
@@ -222,18 +230,19 @@
                             <h1 style="flex:5 0 0">123-123-1234</h1>
                             <h1 class="text-highlightblue font-semibold" style="flex:2 0 0">Running</h1>
                         </div>-->
-                        <div class='flex bg-navblue w-full py-4 px-3 rounded-md text-white mt-3 font-medium'>
-                            <h1 style="flex:5 0 0">Nicholas Fettig</h1>
-                            <h1 style="flex:5 0 0">123-123-1234</h1>
-                            <h1 class="text-highlightred font-semibold" style="flex:2 0 0">Stopped</h1>
+                        <div class='flex bg-navblue w-full py-4 px-3 rounded-md text-white mt-3 font-medium hidden'
+                            id="taskBox">
+                            <h1 style="flex:5 0 0" id="fNameBox">John Doe</h1>
+                            <h1 style="flex:5 0 0" id="phoneBox">123-123-1234</h1>
+                            <h1 class="font-semibold" style="flex:2 0 0" id="currentStatus">Stopped</h1>
                         </div>
-                        <!--<div
-                            class='flex bg-navblue w-full py-20 px-9 rounded-md text-fillergray mt-3 font-medium items-center justify-center text-center font-semibold'>
+                        <div class='flex bg-navblue w-full py-20 px-9 rounded-md text-fillergray mt-3 font-medium items-center justify-center text-center font-semibold'
+                            id="noFound">
                             <div>
-                                <h1 class="text-2xl">Appointment Auto-scheduler not running</h1>
+                                <h1 class="text-2xl">No Appointments Found</h1>
                                 <h1 class="text-lg">(Fill the information on the left and press start) </h1>
                             </div>
-                        </div>-->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -354,17 +363,210 @@
                 style="height:100px; min-height: 100px;">
                 <h1>Vaccination Heatmap</h1>
             </div>
-            <div class="h-full w-full flex-grow px-16 py-10 flex flex-row overflow-y-auto Whole">
+            <div class="h-full w-full flex-grow px-16 py-10 overflow-y-auto Whole">
                 <!--Real Content-->
-                <div style="flex: 5 0 0" class="h-full">
+                <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+                <style type="text/css">
+                    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+                    #map {
+                        height: 100%;
+                    }
 
-                </div>
-                <div style="flex: 3 0 0" class="h-full">
+                    /* Optional: Makes the sample page fill the window. */
+                    html,
+                    body {
+                        height: 100%;
+                        margin: 0;
+                        padding: 0;
+                    }
 
-                </div>
+                    #floating-panel {
+                        position: absolute;
+                        top: 10px;
+                        left: 25%;
+                        z-index: 5;
+                        background-color: #fff;
+                        padding: 5px;
+                        border: 1px solid #999;
+                        text-align: center;
+                        font-family: "Roboto", "sans-serif";
+                        line-height: 30px;
+                        padding-left: 10px;
+                    }
+
+                    #floating-panel {
+                        background-color: #fff;
+                        border: 1px solid #999;
+                        left: 25%;
+                        padding: 5px;
+                        position: absolute;
+                        top: 10px;
+                        z-index: 5;
+                    }
+                </style>
+
+                <script>
+                    // This example requires the Visualization library. Include the libraries=visualization
+                    // parameter when you first load the API. For example:
+                    let map, heatmap, main;
+                    let thing = {};
+                    let counties = {
+                        Allegany: { lat: 39.6255251, lng: -78.6114999 },
+                        'Anne Arundel': { lat: 38.9530109, lng: -76.5488232 },
+                        Baltimore: { lat: 39.2903848, lng: -76.6121893 },
+                        'Baltimore City': { lat: 39.2903848, lng: -76.6121893 },
+                        Calvert: { lat: 38.49495030000001, lng: -76.5025742 },
+                        Caroline: { lat: 38.9105018, lng: -75.8533954 },
+                        Carroll: { lat: 39.5423418, lng: -77.0564464 },
+                        Cecil: { lat: 39.5739403, lng: -75.94632399999999 },
+                        Charles: { lat: 38.5221781, lng: -77.10249019999999 },
+                        Dorchester: { lat: 38.4152819, lng: -76.17837390000001 },
+                        Frederick: { lat: 39.41426879999999, lng: -77.4105409 },
+                        Garrett: { lat: 39.5681243, lng: -79.29021329999999 },
+                        Harford: { lat: 39.5838964, lng: -76.3637285 },
+                        Howard: { lat: 39.2873463, lng: -76.964306 },
+                        Kent: { lat: 39.2713804, lng: -76.1319953 },
+                        Montgomery: { lat: 39.1547426, lng: -77.2405153 },
+                        "Prince George's": { lat: 38.78492110000001, lng: -76.8720961 },
+                        "Queen Anne's": { lat: 39.0263572, lng: -76.1319953 },
+                        "St. Mary's": { lat: 38.1060259, lng: -76.3637285 },
+                        Somerset: { lat: 38.9659438, lng: -77.0960893 },
+                        Talbot: { lat: 38.7803973, lng: -76.1319953 },
+                        Washington: { lat: 39.641762, lng: -77.719993 },
+                        Wicomico: { lat: 38.3941813, lng: -75.667356 },
+                        Worcester: { lat: 38.1584227, lng: -75.4344727 }
+                    };
+                    fetch('http://localhost:3000/api/graphData')
+                        .then(response => response.json())
+                        .then(data => {
+                            main = data['data2']['data'];
+
+                        });
+                    let vaccinationPercentages = {
+                        Allegany: "14996",
+                        'Anne Arundel': "127817",
+                        Baltimore: "203620",
+                        'Baltimore City': "114361",
+                        Calvert: "21212",
+                        Caroline: "7189",
+                        Carroll: "40177",
+                        Cecil: "20076",
+                        Charles: "28400",
+                        Dorchester: "7195",
+                        Frederick: "60268",
+                        Garrett: "6709",
+                        Harford: "59168",
+                        Howard: "90647",
+                        Kent: "5654",
+                        Montgomery: "250685",
+                        "Prince George's": "139130",
+                        "Queen Anne's": "12303",
+                        Somerset: "4371",
+                        "St. Mary's": "24338",
+                        Talbot: "11291",
+                        Unknown: "62979",
+                        Washington: "28734",
+                        Wicomico: "22369",
+                        Worcester: "15604",
+                    }
+
+
+
+
+
+                    function heatMapData() {
+                        let a = [];
+                        for (const [key, value] of Object.entries(counties)) {
+                            // console.log(key, value)
+                            // a.push(new google.maps.LatLng(parseInt(value['lat']), value['lng']));
+                            a.push({ location: new google.maps.LatLng(value['lat'], value['lng']), weight: parseInt(vaccinationPercentages[key]) })
+                        }
+                        return a;
+                    }
+
+                    function initMap() {
+                        map = new google.maps.Map(document.getElementById("map"), {
+                            zoom: 9,
+                            center: { lat: 39.065170, lng: -76.974440 },
+                            mapTypeId: "satellite",
+                        });
+                        heatmap = new google.maps.visualization.HeatmapLayer({
+                            data: heatMapData(),
+                            map: map,
+                        });
+
+                        heatmap.set("radius", heatmap.get("radius") ? null : 100);
+
+                        toggleHeatmap();
+
+                    }
+
+                    function toggleHeatmap() {
+                        for (i in main) {
+                            if (main[i]['County'] == "Unknown") {
+                                continue;
+                            }
+                            const marker = new google.maps.Marker({
+                                position: counties[main[i]['County']],
+                                map,
+                                title: main[i]['County'],
+                            });
+                            const infowindow = new google.maps.InfoWindow({
+                                content: `County: ${main[i]['County']}<div></div>First Doses Completed: ${main[i]['FirstDose']}<div></div>Total Doses Completed: ${main[i]['FullyVaccinated']}<div></div>`,
+                            })
+                            marker.addListener('click', () => {
+                                infowindow.open(map, marker);
+                            });
+                        }
+                    }
+
+                    function changeGradient() {
+                        const gradient = [
+                            "rgba(0, 255, 255, 0)",
+                            "rgba(0, 255, 255, 1)",
+                            "rgba(0, 191, 255, 1)",
+                            "rgba(0, 127, 255, 1)",
+                            "rgba(0, 63, 255, 1)",
+                            "rgba(0, 0, 255, 1)",
+                            "rgba(0, 0, 223, 1)",
+                            "rgba(0, 0, 191, 1)",
+                            "rgba(0, 0, 159, 1)",
+                            "rgba(0, 0, 127, 1)",
+                            "rgba(63, 0, 91, 1)",
+                            "rgba(127, 0, 63, 1)",
+                            "rgba(191, 0, 31, 1)",
+                            "rgba(255, 0, 0, 1)",
+                        ];
+                        heatmap.set("gradient", heatmap.get("gradient") ? null : gradient);
+                    }
+
+                    function changeRadius() {
+                        heatmap.set("radius", heatmap.get("radius") ? null : 100);
+                    }
+
+                    function changeOpacity() {
+                        heatmap.set("opacity", heatmap.get("opacity") ? null : 0.2);
+                    }
+
+      // Heatmap data: 500 Points
+
+                </script>
+                </head>
+
+                <body>
+
+                    <div id="map"></div>
+
+                    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+                    <script
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArxFcPsXoCNjUP-9HVImrZKzC_99IMKaM&callback=initMap&libraries=visualization&v=weekly"
+                        async></script>
+
             </div>
-
         </div>
+
+    </div>
 
     </div>
 
@@ -377,6 +579,230 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"
         integrity="sha512-8Wy4KH0O+AuzjMm1w5QfZ5j5/y8Q/kcUktK9mPUVaUoBvh3QPUZB822W/vy7ULqri3yR8daH3F58+Y8Z08qzeg=="
         crossorigin="anonymous"></script>
+    <script>
+        /*
+        fetch('http://localhost:3000/api/newsData')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            let div;
+            let img;
+            let newsdiv = document.getElementById('googlenews');
+            for(i in data) {
+                div = document.createElement('div');
+                img = document.createElement('img');
+                img.src = data[i]['urlToImage'];
+                img.alt = 'Vaccine Data';
+                div.className = 'bg-navblue w-full p-5';
+                div.innerHTML = JSON.stringify(data[i]);
+                div.appendChild(img);
+                newsdiv.appendChild(div);
+            }
+        });
+        */
+
+        let data = [
+            {
+                "url": "https://www.israelnationalnews.com/News/News.aspx/298867",
+                "title": "Abbas receives first dose of COVID-19 vaccine",
+                "urlToImage": "http://u.a7.org/pictures/799/799624.jpg",
+                "content": "Palestinian Authority (PA) chairman Mahmoud Abbas on Saturday received the first jab of the COVID-19 vaccine, the WAFA news agency reported.\r\nAbbas urged Palestinian Arabs to continue to adhere to th… [+86 chars]"
+            },
+            { "url": "https://www.israelnationalnews.com/News/News.aspx/298867", "title": "Abbas receives first dose of COVID-19 vaccine", "urlToImage": "http://u.a7.org/pictures/799/799624.jpg", "content": "Palestinian Authority (PA) chairman Mahmoud Abbas on Saturday received the first jab of the COVID-19 vaccine, the WAFA news agency reported.\r\nAbbas urged Palestinian Arabs to continue to adhere to th… [+86 chars]" },
+            { "url": "https://www.israelnationalnews.com/News/News.aspx/298867", "title": "Abbas receives first dose of COVID-19 vaccine", "urlToImage": "http://u.a7.org/pictures/799/799624.jpg", "content": "Palestinian Authority (PA) chairman Mahmoud Abbas on Saturday received the first jab of the COVID-19 vaccine, the WAFA news agency reported.\r\nAbbas urged Palestinian Arabs to continue to adhere to th… [+86 chars]" },
+            { "url": "https://www.israelnationalnews.com/News/News.aspx/298867", "title": "Abbas receives first dose of COVID-19 vaccine", "urlToImage": "http://u.a7.org/pictures/799/799624.jpg", "content": "Palestinian Authority (PA) chairman Mahmoud Abbas on Saturday received the first jab of the COVID-19 vaccine, the WAFA news agency reported.\r\nAbbas urged Palestinian Arabs to continue to adhere to th… [+86 chars]" },
+            { "url": "https://www.israelnationalnews.com/News/News.aspx/298867", "title": "Abbas receives first dose of COVID-19 vaccine", "urlToImage": "http://u.a7.org/pictures/799/799624.jpg", "content": "Palestinian Authority (PA) chairman Mahmoud Abbas on Saturday received the first jab of the COVID-19 vaccine, the WAFA news agency reported.\r\nAbbas urged Palestinian Arabs to continue to adhere to th… [+86 chars]" }
+        ]
+        let div;
+        let img;
+        let newsdiv = document.getElementById('googlenews');
+        for (i in data) {
+            div = document.createElement('div');
+            img = document.createElement('img');
+            img.src = data[i]['urlToImage'];
+            img.alt = 'Vaccine Data';
+            div.className = 'bg-navblue w-full p-5';
+            div.innerHTML = JSON.stringify(data[i]);
+            div.appendChild(img);
+            newsdiv.appendChild(div);
+        }
+
+    </script>
+    <script>
+        async function submitSchedule() {
+            var fName = document.getElementById("fName").value;
+            var lName = document.getElementById("lName").value;
+            var phone = document.getElementById("phone").value;
+            var dob = document.getElementById("dob").value;
+            var gender = document.getElementById("gender").value;
+            var genderNumber = "-1";
+            if (gender == "Female") {
+                genderNumber = "1"
+            } else if (gender == "Male") {
+                genderNumber = "2"
+            } else if (gender == "Other" || gender == "Prefer not to Say") {
+                genderNumber = "3"
+            } else {
+                console.log("Error... did not fill out form...");
+                return;
+            }
+            var white = document.getElementById("whiteCheck").checked;
+            var black = document.getElementById("blackCheck").checked;
+            var asian = document.getElementById("asianCheck").checked;
+            var indAlas = document.getElementById("indCheck").checked;
+            var uRace = document.getElementById("urCheck").checked;
+            var nativeH = document.getElementById("nhCheck").checked;
+            var oRace = document.getElementById("orCheck").checked;
+            var dRace = document.getElementById("drCheck").checked;
+            var raceNumber = "-1"
+            if (white) {
+                raceNumber = "1"
+            } else if (black) {
+                raceNumber = "2"
+            } else if (asian) {
+                raceNumber = "3"
+            } else if (indAlas) {
+                raceNumber = "4"
+            } else if (uRace) {
+                raceNumber = "5"
+            } else if (nativeH) {
+                raceNumber = "6"
+            } else if (oRace) {
+                raceNumber = "7"
+            } else if (dRace) {
+                raceNumber = "5"
+            } else {
+                console.log("Error... did not fill out form...");
+                return;
+            }
+            var address1 = document.getElementById("address1").value;
+            var city = document.getElementById("city").value;
+            var zip = document.getElementById("zip").value;
+            document.getElementById("fName").value = "";
+            document.getElementById("lName").value = "";
+            document.getElementById("phone").value = "";
+            document.getElementById("dob").value = "";
+            document.getElementById("gender").value = " -- Sex -- ";
+            document.getElementById("whiteCheck").checked = false;
+            document.getElementById("blackCheck").checked = false;
+            document.getElementById("asianCheck").checked = false;
+            document.getElementById("indCheck").checked = false;
+            document.getElementById("urCheck").checked = false;
+            document.getElementById("nhCheck").checked = false;
+            document.getElementById("orCheck").checked = false;
+            document.getElementById("drCheck").checked = false;
+            document.getElementById("address1").value = "";
+            document.getElementById("city").value = "";
+            document.getElementById("zip").value = "";
+            document.getElementById("state").value = "";
+            document.getElementById("email").value = "";
+            const response = await fetch("/api/newSchedule", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    fName: fName,
+                    lName: lName,
+                    gender: genderNumber,
+                    dob: dob,
+                    race: raceNumber,
+                    address1: address1,
+                    city: city,
+                    zip: zip,
+                    phone: phone
+                })
+            });
+            console.log(response.json());
+            console.log("Started Task!");
+        }
+        let searchInput = "";
+        let workingPhone = false;
+        async function checkSchedule() {
+            var phone = document.getElementById("searchInput").value;
+            searchInput = phone;
+            console.log(searchInput)
+            if (searchInput == "") {
+                workingPhone = false;
+            } else {
+                var jsonPhone = {
+                    phone: phone
+                };
+                const response = fetch("/api/checkSchedule", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(jsonPhone)
+                }).then(response => response.json())
+                    .then(data => {
+                        let jsonResponse = data;
+                        if (jsonResponse.error) {
+                            workingPhone = false;
+                            document.getElementById("noFound").classList.remove("hidden");
+                            document.getElementById("taskBox").classList.add("hidden");
+                        } else {
+                            workingPhone = true;
+                            document.getElementById("noFound").classList.add("hidden");
+                            console.log(jsonResponse);
+                            document.getElementById("fNameBox").innerHTML = jsonResponse.fullName;
+                            document.getElementById("phoneBox").innerHTML = jsonResponse.phone;
+                            if (jsonResponse.status == "finished") {
+                                document.getElementById("currentStatus").innerHTML = "Scheduled!";
+                                try {
+                                    document.getElementById("currentStatus").classList.remove("text-highlightyellow");
+                                    document.getElementById("currentStatus").classList.remove("text-highlightred");
+                                } catch (e) {
+                                }
+                                document.getElementById("currentStatus").classList.add("text-highlightgreen");
+                            } else if (jsonResponse.status == "running") {
+                                document.getElementById("currentStatus").innerHTML = "Still Running";
+                                try {
+                                    document.getElementById("currentStatus").classList.remove("text-highlightred");
+                                    document.getElementById("currentStatus").classList.remove("text-highlightgreen");
+                                } catch (e) {
+                                }
+                                document.getElementById("currentStatus").classList.add("text-highlightyellow");
+                            } else if (jsonResponse.status == "stopped") {
+                                document.getElementById("currentStatus").innerHTML = "Stopped";
+                                try {
+                                    document.getElementById("currentStatus").classList.remove("text-highlightyellow");
+                                    document.getElementById("currentStatus").classList.remove("text-highlightgreen");
+                                } catch (e) {
+                                }
+                                document.getElementById("currentStatus").classList.add("text-highlightred");
+                            }
+                            document.getElementById("taskBox").classList.remove("hidden");
+                        }
+                    });
+            }
+        }
+        async function stopTask() {
+            if (workingPhone == false) {
+                return;
+            } else if (workingPhone == true) {
+                const response = fetch("/api/stopSchedule", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        phone: searchInput
+                    })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById("currentStatus").innerHTML = "Stopped";
+                        try {
+                            document.getElementById("currentStatus").classList.remove("text-highlightyellow");
+                            document.getElementById("currentStatus").classList.remove("text-highlightgreen");
+                        } catch (e) {
+                        }
+                        document.getElementById("currentStatus").classList.add("text-highlightred");
+                    });
+            }
+        }
+    </script>
     <script src="app.js"></script>
 </body>
 
