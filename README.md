@@ -1,4 +1,4 @@
-# COVID Toolbox
+# COVID Toolbox - MocoHacks2021 Project
 ### What Is COVID Toolbox?
 * COVID Toolbox is a webapp that contains accessible information about vaccines and the process of eradicating COVID-19
 ### Why did you create COVID Toolbox?
